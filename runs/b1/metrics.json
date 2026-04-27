@@ -1,0 +1,188 @@
+{
+  "patient_level": {
+    "accuracy": 0.82,
+    "precision": 0.9091,
+    "recall": 0.7407,
+    "f1": 0.8163,
+    "tp": 20,
+    "fp": 2,
+    "tn": 21,
+    "fn": 7,
+    "errors": [
+      {
+        "id": "10002",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10003",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10010",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10017",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10025",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "10028",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10032",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "10042",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10047",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      }
+    ]
+  },
+  "stay_level": {
+    "accuracy": 0.8657,
+    "precision": 1.0,
+    "recall": 0.5909,
+    "f1": 0.7429,
+    "tp": 26,
+    "fp": 0,
+    "tn": 90,
+    "fn": 18,
+    "errors": [
+      {
+        "id": "10002_v2",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10003_v1",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10008_v4",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10010_v2",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10011_v1",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10011_v6",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10013_v3",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10017_v1",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10017_v2",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10023_v4",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10024_v3",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10028_v1",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10028_v3",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10034_v2",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10042_v3",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10042_v4",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10043_v4",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10047_v1",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      }
+    ]
+  }
+}

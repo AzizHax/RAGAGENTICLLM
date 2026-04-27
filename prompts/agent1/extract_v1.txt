@@ -1,0 +1,35 @@
+# EXTRACTION TASK
+Extract RA-related information in strict JSON format:
+
+1. **disease_mentions**: Array with:
+   - entity: disease name
+   - status: "confirmed" | "suspected" | "negated" | "mentioned"
+   - evidence: {{"stay_id": "{stay_id}", "line_no": <number>, "snippet": "..."}}
+
+2. **labs**: Array with:
+   - test: "RF" | "anti-CCP" | "CRP" | "VHS"
+   - value: numeric with unit (e.g., "87 UI/mL")
+   - polarity: "positive" | "negative" | "unknown"
+   - evidence: {{"stay_id": "{stay_id}", "line_no": <number>, "snippet": "..."}}
+   
+   **CRITICAL - Polarity inference:**
+   - RF: "Positif (87 UI/mL)" → polarity: "positive"
+   - Anti-CCP: "Négatif" → polarity: "negative"
+   - CRP > 10 mg/L → polarity: "positive"
+   - Look for: "positif", "négatif", "+", "−", "élevé", "normal"
+
+3. **drugs**: Array with:
+   - name: generic drug name
+   - category: "csDMARD" | "bDMARD" | "tsDMARD" | "corticosteroid" | "AINS"
+   - evidence: {{"stay_id": "{stay_id}", "line_no": <number>, "snippet": "..."}}
+
+# TEMPORAL AWARENESS
+- Consider historical context from previous stays
+- Note if values changed vs previous visits
+- Extract "Évolution depuis dernière visite" information
+
+# OUTPUT FORMAT
+{{
+  "disease_mentions": [...],
+  "labs": [...],
+  "drugs": [...]

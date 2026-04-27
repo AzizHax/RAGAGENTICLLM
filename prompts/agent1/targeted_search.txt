@@ -1,0 +1,23 @@
+Search this clinical questionnaire for SPECIFIC missing information.
+
+Stay: {stay_id}
+
+# WHAT TO FIND
+{search_instructions}
+
+# FULL QUESTIONNAIRE (all records, unfiltered)
+{all_records}
+
+# RULES
+- Search carefully, the information may be indirect or implied
+- If a test result is mentioned anywhere, extract it
+- "Bilan normal" or "pas de syndrome inflammatoire" = negative evidence (report it!)
+- If truly not present in the text, return empty arrays
+
+RESPOND JSON:
+{{
+  "labs": [...],
+  "disease_mentions": [...],
+  "drugs": [...],
+  "search_result": "found" | "confirmed_absent"
+}}

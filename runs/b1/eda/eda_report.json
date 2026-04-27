@@ -1,0 +1,5 @@
+{
+  "input": "data/ehr_ioa_test_50p.json",
+  "format": ".json",
+  "output_dir": "runs\\b1\\eda"
+}

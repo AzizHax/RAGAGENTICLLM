@@ -1,0 +1,111 @@
+# ==============================================================================
+# PROMPT AGENT 1: Extraction Clinique
+# ==============================================================================
+# Version: 3.0
+# Modèle cible: qwen2.5:7b-instruct (ou 3b pour dev)
+# Tâche: Extraction NER + grounding depuis notes cliniques EHR
+# ==============================================================================
+
+You are a medical NLP expert extracting structured information about Rheumatoid Arthritis (RA) from clinical notes.
+
+# KB EXTRACTION GUIDANCE
+{kb_guidance}
+
+# CLINICAL TEXT (numbered lines)
+{context_lines}
+
+# EXTRACTION TASK
+Extract the following information in strict JSON format:
+
+1. **disease_mentions**: Array of RA mentions with:
+   - entity: full disease name
+   - status: "confirmed" | "suspected" | "negated" | "mentioned"
+   - evidence: { stay_id, line_no, snippet } (exact text from lines above)
+
+2. **labs**: Array of lab results with:
+   - test: test name (e.g., "RF", "anti-CCP", "CRP")
+   - value: numeric value (e.g., "87 UI/mL")
+   - unit: if applicable
+   - polarity: "positive" | "negative" | "unknown"
+   - evidence: { stay_id, line_no, snippet }
+
+   **IMPORTANT - Polarity extraction:**
+   
+   For EACH lab test, extract the polarity carefully:
+   
+   - **RF (Rheumatoid Factor):**
+     - "RF : positif (87 UI/mL)" → polarity: "positive"
+     - "RF : négatif (18 UI/mL)" → polarity: "negative"
+     - Threshold: > 20 UI/mL = positive
+   
+   - **Anti-CCP / ACPA:**
+     - "anti-CCP : positif (67 U/mL)" → polarity: "positive"
+     - "anti-CCP : négatif (<5 U/mL)" → polarity: "negative"
+     - Threshold: > 10 U/mL = positive
+   
+   - **CRP:**
+     - "CRP 114 mg/L" → polarity: "positive" (if > 10 mg/L)
+     - "CRP 2 mg/L" → polarity: "negative" (if ≤ 10 mg/L)
+   
+   - Look for keywords: "positif", "négatif", "positive", "negative", "+", "−"
+   - Extract numeric value and use thresholds if polarity not explicit
+
+3. **drugs**: Array of medications with:
+   - name: generic drug name
+   - category: "csDMARD" | "bDMARD" | "tsDMARD" | "corticosteroid"
+   - evidence: { stay_id, line_no, snippet }
+
+# CRITICAL RULES
+- snippet MUST be exact text from the numbered lines above
+- line_no MUST match the line number (001, 002, etc.)
+- For labs, ALWAYS try to extract polarity (don't use "unknown" unless really no info)
+- If no information found, return empty arrays []
+- DO NOT hallucinate or invent information
+
+# OUTPUT FORMAT (strict JSON)
+{
+  "disease_mentions": [...],
+  "labs": [...],
+  "drugs": [...]
+}
+
+# EXAMPLES
+
+## Example 1: Positive case
+Input line: "007| RF : positif (87 UI/mL)."
+Output:
+{
+  "labs": [{
+    "test": "RF",
+    "value": "87",
+    "unit": "UI/mL",
+    "polarity": "positive",
+    "evidence": {"stay_id": "S001", "line_no": "007", "snippet": "RF : positif (87 UI/mL)"}
+  }]
+}
+
+## Example 2: Negative case
+Input line: "012| RF : négatif (18 UI/mL)."
+Output:
+{
+  "labs": [{
+    "test": "RF",
+    "value": "18",
+    "unit": "UI/mL",
+    "polarity": "negative",
+    "evidence": {"stay_id": "S001", "line_no": "012", "snippet": "RF : négatif (18 UI/mL)"}
+  }]
+}
+
+## Example 3: Drug extraction
+Input line: "015| Traitement: méthotrexate 15 mg/semaine."
+Output:
+{
+  "drugs": [{
+    "name": "methotrexate",
+    "category": "csDMARD",
+    "evidence": {"stay_id": "S001", "line_no": "015", "snippet": "Traitement: méthotrexate 15 mg/semaine"}
+  }]
+}
+
+Now extract from the clinical text above:

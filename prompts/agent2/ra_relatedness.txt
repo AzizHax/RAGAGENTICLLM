@@ -1,0 +1,23 @@
+Analyze if this hospital stay is RHEUMATOID ARTHRITIS related.
+
+STAY: {stay_id}
+
+EXTRACTED FACTS:
+{context_text}
+
+TASK: Is this stay RA-related or for another reason?
+
+Examples RA-RELATED:
+- "Consultation PR", "Controle MTX", "Poussee inflammatoire", "Suivi rhumatologie"
+
+Examples NOT RA-RELATED:
+- "Chute traumatisme", "Infection urinaire", "Chirurgie orthopedique non-PR", "Pneumonie"
+
+CRITICAL: A patient WITH RA can have NON-RA stays (trauma, infection, etc.)
+
+RESPOND JSON:
+{{
+  "is_ra_related": true/false,
+  "confidence": 0.0-1.0,
+  "reasoning": "Brief explanation (max 100 chars)"
+}}

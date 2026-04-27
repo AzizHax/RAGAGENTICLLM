@@ -1,0 +1,4 @@
+Stay: {stay_id}
+{temporal_context}
+Records:
+{context_records}

@@ -1,0 +1,37 @@
+{
+  "kb_name": "pr_phenotype_spec_v1",
+  "slots": [
+    {
+      "slot": "ra_diagnosis",
+      "description": "Mention de PR/RA et statut (confirmed/suspected/negated/mentioned).",
+      "patterns": {
+        "positive": ["polyarthrite rhumatoïde", "rheumatoid arthritis", "PR"],
+        "negation": ["pas de", "absence de", "écartée", "exclue", "non retenue"],
+        "suspicion": ["suspicion", "suspect", "possible", "probable", "à confirmer"],
+        "confirmation": ["confirmée", "diagnostic:", "diagnostic retenu", "retenu"]
+      },
+      "pitfalls": ["PR=pression artérielle", "PR=prothèse", "PR=prostate"]
+    },
+    {
+      "slot": "rf",
+      "description": "RF et polarité.",
+      "patterns": { "anchor": ["RF", "facteur rhumatoïde", "rheumatoid factor"] },
+      "polarity_cues": { "pos": ["positif", "positive"], "neg": ["négatif", "negatif", "negative"] }
+    },
+    {
+      "slot": "anti_ccp",
+      "description": "anti-CCP/ACPA et polarité.",
+      "patterns": { "anchor": ["anti-CCP", "ACPA", "anti citrullin", "anticorps anti-CCP"] },
+      "polarity_cues": { "pos": ["positif", "positive"], "neg": ["négatif", "negatif", "negative"] }
+    },
+    {
+      "slot": "treatment",
+      "description": "MTX/DMARD/bDMARD/JAKi",
+      "patterns": {
+        "mtx": ["methotrexate", "méthotrexate", "MTX"],
+        "biologics": ["adalimumab","etanercept","infliximab","tocilizumab","abatacept","rituximab","golimumab","certolizumab","sarilumab"],
+        "jak": ["tofacitinib","baricitinib","upadacitinib"]
+      }
+    }
+  ]
+}

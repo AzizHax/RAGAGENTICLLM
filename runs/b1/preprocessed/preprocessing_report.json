@@ -1,0 +1,259 @@
+{
+  "input": "data/synth_real.parquet",
+  "output": "runs\\b1\\preprocessed\\corpus.json",
+  "n_patients": 50,
+  "n_stays": 153,
+  "n_records": 17620,
+  "patients": [
+    {
+      "patient_id": "10001.0",
+      "n_stays": 3,
+      "n_records": 362
+    },
+    {
+      "patient_id": "10002.0",
+      "n_stays": 2,
+      "n_records": 197
+    },
+    {
+      "patient_id": "10003.0",
+      "n_stays": 2,
+      "n_records": 223
+    },
+    {
+      "patient_id": "10004.0",
+      "n_stays": 6,
+      "n_records": 739
+    },
+    {
+      "patient_id": "10005.0",
+      "n_stays": 4,
+      "n_records": 465
+    },
+    {
+      "patient_id": "10006.0",
+      "n_stays": 4,
+      "n_records": 453
+    },
+    {
+      "patient_id": "10007.0",
+      "n_stays": 2,
+      "n_records": 225
+    },
+    {
+      "patient_id": "10008.0",
+      "n_stays": 4,
+      "n_records": 446
+    },
+    {
+      "patient_id": "10009.0",
+      "n_stays": 2,
+      "n_records": 233
+    },
+    {
+      "patient_id": "10010.0",
+      "n_stays": 3,
+      "n_records": 324
+    },
+    {
+      "patient_id": "10011.0",
+      "n_stays": 6,
+      "n_records": 679
+    },
+    {
+      "patient_id": "10012.0",
+      "n_stays": 4,
+      "n_records": 421
+    },
+    {
+      "patient_id": "10013.0",
+      "n_stays": 3,
+      "n_records": 318
+    },
+    {
+      "patient_id": "10014.0",
+      "n_stays": 4,
+      "n_records": 454
+    },
+    {
+      "patient_id": "10015.0",
+      "n_stays": 5,
+      "n_records": 553
+    },
+    {
+      "patient_id": "10016.0",
+      "n_stays": 4,
+      "n_records": 497
+    },
+    {
+      "patient_id": "10017.0",
+      "n_stays": 2,
+      "n_records": 216
+    },
+    {
+      "patient_id": "10018.0",
+      "n_stays": 1,
+      "n_records": 120
+    },
+    {
+      "patient_id": "10019.0",
+      "n_stays": 3,
+      "n_records": 318
+    },
+    {
+      "patient_id": "10020.0",
+      "n_stays": 2,
+      "n_records": 209
+    },
+    {
+      "patient_id": "10021.0",
+      "n_stays": 2,
+      "n_records": 249
+    },
+    {
+      "patient_id": "10022.0",
+      "n_stays": 6,
+      "n_records": 698
+    },
+    {
+      "patient_id": "10023.0",
+      "n_stays": 5,
+      "n_records": 561
+    },
+    {
+      "patient_id": "10024.0",
+      "n_stays": 3,
+      "n_records": 333
+    },
+    {
+      "patient_id": "10025.0",
+      "n_stays": 4,
+      "n_records": 501
+    },
+    {
+      "patient_id": "10026.0",
+      "n_stays": 3,
+      "n_records": 358
+    },
+    {
+      "patient_id": "10027.0",
+      "n_stays": 5,
+      "n_records": 618
+    },
+    {
+      "patient_id": "10028.0",
+      "n_stays": 3,
+      "n_records": 356
+    },
+    {
+      "patient_id": "10029.0",
+      "n_stays": 2,
+      "n_records": 239
+    },
+    {
+      "patient_id": "10030.0",
+      "n_stays": 2,
+      "n_records": 225
+    },
+    {
+      "patient_id": "10031.0",
+      "n_stays": 3,
+      "n_records": 342
+    },
+    {
+      "patient_id": "10032.0",
+      "n_stays": 2,
+      "n_records": 211
+    },
+    {
+      "patient_id": "10033.0",
+      "n_stays": 3,
+      "n_records": 349
+    },
+    {
+      "patient_id": "10034.0",
+      "n_stays": 5,
+      "n_records": 564
+    },
+    {
+      "patient_id": "10035.0",
+      "n_stays": 3,
+      "n_records": 358
+    },
+    {
+      "patient_id": "10036.0",
+      "n_stays": 2,
+      "n_records": 223
+    },
+    {
+      "patient_id": "10037.0",
+      "n_stays": 6,
+      "n_records": 679
+    },
+    {
+      "patient_id": "10038.0",
+      "n_stays": 3,
+      "n_records": 332
+    },
+    {
+      "patient_id": "10039.0",
+      "n_stays": 1,
+      "n_records": 124
+    },
+    {
+      "patient_id": "10040.0",
+      "n_stays": 1,
+      "n_records": 130
+    },
+    {
+      "patient_id": "10041.0",
+      "n_stays": 2,
+      "n_records": 243
+    },
+    {
+      "patient_id": "10042.0",
+      "n_stays": 4,
+      "n_records": 465
+    },
+    {
+      "patient_id": "10043.0",
+      "n_stays": 4,
+      "n_records": 485
+    },
+    {
+      "patient_id": "10044.0",
+      "n_stays": 3,
+      "n_records": 334
+    },
+    {
+      "patient_id": "10045.0",
+      "n_stays": 1,
+      "n_records": 140
+    },
+    {
+      "patient_id": "10046.0",
+      "n_stays": 3,
+      "n_records": 357
+    },
+    {
+      "patient_id": "10047.0",
+      "n_stays": 3,
+      "n_records": 346
+    },
+    {
+      "patient_id": "10048.0",
+      "n_stays": 1,
+      "n_records": 116
+    },
+    {
+      "patient_id": "10049.0",
+      "n_stays": 1,
+      "n_records": 126
+    },
+    {
+      "patient_id": "10050.0",
+      "n_stays": 1,
+      "n_records": 106
+    }
+  ]
+}

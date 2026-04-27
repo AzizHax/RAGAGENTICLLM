@@ -1,0 +1,84 @@
+# ==============================================================================
+# PhenoRAG - Configuration Example
+# ==============================================================================
+# Copier ce fichier en config.yaml et adapter les chemins
+# ==============================================================================
+
+# LLM Configuration
+llm:
+  provider: "ollama"
+  url: "http://localhost:11434"
+  model: "qwen2.5:7b-instruct"
+  temperature: 0.1
+  timeout: 120
+  max_retries: 2
+
+# Modèles alternatifs à tester
+# model_candidates:
+#   - qwen2.5:3b-instruct    # Dev rapide
+#   - qwen2.5:7b-instruct    # Production
+#   - llama3.1:8b-instruct   # Alternative
+#   - mistral:7b-instruct    # Alternative
+
+# Paths
+paths:
+  data_dir: "./data"
+  knowledge_base: "./data/knowledge_base/kb_pr_phenotype.json"
+  prompts_dir: "./prompts"
+  results_dir: "./results"
+  
+# Agent 1: Extraction
+agent1:
+  prefilter_window: 2
+  chunk_size: 6
+  chunk_stride: 3
+  bm25_top_k: 10
+  kb_slots_top_k: 5
+  max_context_lines: 45
+
+# Agent 2: Scoring
+agent2:
+  enable_feedback: true
+  max_revisions: 2
+  # Seuils ACR/EULAR
+  thresholds:
+    rf_uln: 20        # UI/mL
+    rf_high: 60       # >3x ULN
+    ccp_uln: 10       # U/mL
+    ccp_high: 30      # >3x ULN
+    crp_abnormal: 10  # mg/L
+    esr_abnormal: 20  # mm/h
+
+# Agent 3: Orchestration
+agent3:
+  use_llm_critic: true
+  llm_only_on_low_conf: true
+  llm_allow_override: true
+  llm_override_min_conf: 0.80
+  max_evidence_snippets: 6
+  # Thresholds pour fusion
+  threshold_agent1: 3.0
+  threshold_agent2: 6
+
+# RAG Configuration
+rag:
+  retriever: "bm25"  # ou "semantic" si embeddings
+  top_k: 5
+  # Si semantic:
+  # embedding_model: "sentence-transformers/all-MiniLM-L6-v2"
+
+# Evaluation
+evaluation:
+  metrics:
+    - accuracy
+    - precision
+    - recall
+    - f1
+  primary_metric: "f1"
+  target_f1: 0.97
+
+# Logging
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  file: "./logs/phenorag.log"

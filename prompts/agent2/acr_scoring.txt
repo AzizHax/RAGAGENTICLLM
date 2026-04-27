@@ -1,0 +1,28 @@
+Apply ACR-EULAR 2010 criteria to this RA stay.
+
+# RETRIEVED GUIDELINES
+{guidelines_text}
+
+# EXTRACTED FACTS
+{facts_text}
+
+# DETERMINISTIC SCORING (baseline)
+- Joint involvement: {joint_pts} pts ({joint_detail})
+- Serology: {sero_pts} pts ({sero_detail})
+- Acute phase: {acute_pts} pts ({acute_detail})
+- Duration: {dur_pts} pts ({dur_detail})
+- TOTAL: {det_total}/10
+
+# TASK
+Review the deterministic scoring and adjust if needed based on clinical context.
+
+RESPOND JSON:
+{{
+  "joint_involvement": 0-5,
+  "serology": 0-3,
+  "acute_phase": 0-1,
+  "duration": 0-1,
+  "total": 0-10,
+  "reasoning": "Brief clinical reasoning (max 200 chars)",
+  "agrees_with_deterministic": true/false
+}}

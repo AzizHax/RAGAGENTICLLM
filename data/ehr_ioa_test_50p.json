@@ -1,0 +1,4551 @@
+[
+  {
+    "patient_id": "P035",
+    "stays": [
+      {
+        "stay_id": "P035_S01",
+        "visit_number": 1,
+        "date": "2024-06-08T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Chute traumatisme"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Traumatisme cheville droite suite a chute"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "3 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P035_S02",
+        "visit_number": 2,
+        "date": "2024-08-28T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle diabete"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Suivi diabete type 2, HbA1c a controler"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "Biologie",
+            "REPONSE": "Bilan biologique normal"
+          }
+        ]
+      },
+      {
+        "stay_id": "P035_S03",
+        "visit_number": 3,
+        "date": "2024-10-20T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle diabete"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Suivi diabete type 2, HbA1c a controler"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "3 mg/L"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_clean",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P049",
+    "stays": [
+      {
+        "stay_id": "P049_S01",
+        "visit_number": 1,
+        "date": "2024-04-28T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "120 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Infection bacterienne, arthralgies secondaires"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P049_S02",
+        "visit_number": 2,
+        "date": "2024-09-23T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "120 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Syndrome grippal avec arthralgies"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P049_S03",
+        "visit_number": 3,
+        "date": "2024-10-08T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "35 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Infection bacterienne, arthralgies secondaires"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_noise",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P020",
+    "stays": [
+      {
+        "stay_id": "P020_S01",
+        "visit_number": 1,
+        "date": "2024-05-15T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Renouvellement ordonnance PR"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "MTX 20mg + adalimumab"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Douleur moderee poignets"
+          }
+        ]
+      },
+      {
+        "stay_id": "P020_S02",
+        "visit_number": 2,
+        "date": "2024-09-11T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Consultation suivi rhumatologie"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "MTX 20mg + adalimumab"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "12 mg/L"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Douleur moderee poignets"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_incomplete",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P002",
+    "stays": [
+      {
+        "stay_id": "P002_S01",
+        "visit_number": 1,
+        "date": "2024-04-23T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Controle PR sous traitement"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Synovites MCP bilaterales"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Articulations douloureuses: 8 petites articulations"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (230 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (55 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "65 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "33 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          },
+          {
+            "LIBELLE": "Duree des symptomes",
+            "REPONSE": "Depuis plus de 6 mois"
+          }
+        ]
+      },
+      {
+        "stay_id": "P002_S02",
+        "visit_number": 2,
+        "date": "2024-08-26T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Suivi polyarthrite rhumatoide"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Douleurs MCP et poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Tumefaction PIP 2,3 main droite, MCP 2,3,4 bilateraux"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (87 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (55 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "22 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "28 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_classic",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P036",
+    "stays": [
+      {
+        "stay_id": "P036_S01",
+        "visit_number": 1,
+        "date": "2024-04-08T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Infection urinaire"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Fievre 38.5, brulures mictionnelles"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "3 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P036_S02",
+        "visit_number": 2,
+        "date": "2024-08-23T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Infection urinaire"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Fievre 38.5, brulures mictionnelles"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "2 mg/L"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_clean",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P042",
+    "stays": [
+      {
+        "stay_id": "P042_S01",
+        "visit_number": 1,
+        "date": "2024-05-28T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Lupus erythemateux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Arthralgies diffuses, rash malaire"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Lupus systemique, anti-DNA positif"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      },
+      {
+        "stay_id": "P042_S02",
+        "visit_number": 2,
+        "date": "2024-09-28T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Goutte polyarticulaire"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Gonflement MTP1 bilateral"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Goutte polyarticulaire, uricemie 95 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "5 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P042_S03",
+        "visit_number": 3,
+        "date": "2024-10-07T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Goutte polyarticulaire"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Gonflement MTP1 bilateral"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Goutte polyarticulaire, uricemie 95 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_mimic",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P030",
+    "stays": [
+      {
+        "stay_id": "P030_S01",
+        "visit_number": 1,
+        "date": "2024-05-15T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Raideur matinale 30min, sensibilite MCP"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "11 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Faiblement positif (29 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Symptomes depuis 2 mois"
+          }
+        ]
+      },
+      {
+        "stay_id": "P030_S02",
+        "visit_number": 2,
+        "date": "2024-09-12T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Douleur articulaire diffuse, pas de synovite franche"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "11 mg/L"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      },
+      {
+        "stay_id": "P030_S03",
+        "visit_number": 3,
+        "date": "2024-11-10T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Raideur matinale 30min, sensibilite MCP"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "11 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Faiblement positif (39 UI/mL)"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Symptomes depuis 2 mois"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_borderline",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P014",
+    "stays": [
+      {
+        "stay_id": "P014_S01",
+        "visit_number": 1,
+        "date": "2024-04-09T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "12 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Suivi depuis 3 ans, maladie chronique"
+          }
+        ]
+      },
+      {
+        "stay_id": "P014_S02",
+        "visit_number": 2,
+        "date": "2024-07-22T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "18 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Suivi depuis 3 ans, maladie chronique"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_seroneg",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P050",
+    "stays": [
+      {
+        "stay_id": "P050_S01",
+        "visit_number": 1,
+        "date": "2024-04-25T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Fievre et arthralgies"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "35 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Syndrome grippal avec arthralgies"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P050_S02",
+        "visit_number": 2,
+        "date": "2024-07-23T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Douleurs articulaires post-infectieuses"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "35 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Syndrome grippal avec arthralgies"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P050_S03",
+        "visit_number": 3,
+        "date": "2024-11-26T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "35 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Arthrite reactionnelle post-infectieuse"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_noise",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P013",
+    "stays": [
+      {
+        "stay_id": "P013_S01",
+        "visit_number": 1,
+        "date": "2024-06-23T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "18 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          }
+        ]
+      },
+      {
+        "stay_id": "P013_S02",
+        "visit_number": 2,
+        "date": "2024-09-10T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "12 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Suivi depuis 3 ans, maladie chronique"
+          }
+        ]
+      },
+      {
+        "stay_id": "P013_S03",
+        "visit_number": 3,
+        "date": "2024-10-09T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "12 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Suivi depuis 3 ans, maladie chronique"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_seroneg",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P008",
+    "stays": [
+      {
+        "stay_id": "P008_S01",
+        "visit_number": 1,
+        "date": "2024-04-04T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Controle PR sous traitement"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Synovites MCP bilaterales"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Synovites MCP 2,3,4 bilaterales, poignets gonfles"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (87 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (150 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "22 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "50 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 20 mg/semaine"
+          }
+        ]
+      },
+      {
+        "stay_id": "P008_S02",
+        "visit_number": 2,
+        "date": "2024-07-08T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Suivi polyarthrite rhumatoide"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Douleurs MCP et poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Synovites MCP 2,3,4 bilaterales, poignets gonfles"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (87 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (150 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "48 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "37 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          },
+          {
+            "LIBELLE": "Duree des symptomes",
+            "REPONSE": "Depuis plus de 6 mois"
+          },
+          {
+            "LIBELLE": "Imagerie",
+            "REPONSE": "Echographie: synovites actives grade 2-3"
+          }
+        ]
+      },
+      {
+        "stay_id": "P008_S03",
+        "visit_number": 3,
+        "date": "2024-10-14T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Vaccination"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_classic",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P005",
+    "stays": [
+      {
+        "stay_id": "P005_S01",
+        "visit_number": 1,
+        "date": "2024-06-14T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Poussee inflammatoire PR"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Douleurs MCP et poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Synovites MCP 2,3,4 bilaterales, poignets gonfles"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (87 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (55 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "22 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "52 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 20 mg/semaine"
+          },
+          {
+            "LIBELLE": "Imagerie",
+            "REPONSE": "Echographie: synovites actives grade 2-3"
+          }
+        ]
+      },
+      {
+        "stay_id": "P005_S02",
+        "visit_number": 2,
+        "date": "2024-08-25T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Consultation rhumatologie PR"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Douleurs MCP et poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Articulations douloureuses: 8 petites articulations"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (120 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (150 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "65 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "48 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          },
+          {
+            "LIBELLE": "Imagerie",
+            "REPONSE": "Echographie: synovites actives grade 2-3"
+          }
+        ]
+      },
+      {
+        "stay_id": "P005_S03",
+        "visit_number": 3,
+        "date": "2024-10-17T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Poussee inflammatoire PR"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Douleurs MCP et poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Articulations douloureuses: 8 petites articulations"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (45 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (78 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "48 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "53 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 10 mg/semaine"
+          },
+          {
+            "LIBELLE": "Duree des symptomes",
+            "REPONSE": "Depuis plus de 6 mois"
+          },
+          {
+            "LIBELLE": "Imagerie",
+            "REPONSE": "Echographie: synovites actives grade 2-3"
+          }
+        ]
+      },
+      {
+        "stay_id": "P005_S04",
+        "visit_number": 4,
+        "date": "2024-12-27T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Controle PR sous traitement"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Douleurs MCP et poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Articulations douloureuses: 8 petites articulations"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (87 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (55 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "22 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "35 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_classic",
+      "n_stays": 4
+    }
+  },
+  {
+    "patient_id": "P017",
+    "stays": [
+      {
+        "stay_id": "P017_S01",
+        "visit_number": 1,
+        "date": "2024-04-27T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Renouvellement ordonnance PR"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "8 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P017_S02",
+        "visit_number": 2,
+        "date": "2024-08-28T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Renouvellement ordonnance PR"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "MTX 20mg + adalimumab"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "12 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P017_S03",
+        "visit_number": 3,
+        "date": "2024-11-21T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan hepatique (surveillance MTX)"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_incomplete",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P007",
+    "stays": [
+      {
+        "stay_id": "P007_S01",
+        "visit_number": 1,
+        "date": "2024-04-08T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Suivi polyarthrite rhumatoide"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Raideur matinale > 1h, MCP 2-3-4 gonfles"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Articulations douloureuses: 8 petites articulations"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (67 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (55 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "15 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "32 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          },
+          {
+            "LIBELLE": "Imagerie",
+            "REPONSE": "Echographie: synovites actives grade 2-3"
+          }
+        ]
+      },
+      {
+        "stay_id": "P007_S02",
+        "visit_number": 2,
+        "date": "2024-08-03T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Chute avec fracture poignet"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_classic",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P039",
+    "stays": [
+      {
+        "stay_id": "P039_S01",
+        "visit_number": 1,
+        "date": "2024-04-14T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle diabete"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Suivi diabete type 2, HbA1c a controler"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "3 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P039_S02",
+        "visit_number": 2,
+        "date": "2024-07-08T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Pneumonie"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Toux productive, fievre, foyer pulmonaire droit"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P039_S03",
+        "visit_number": 3,
+        "date": "2024-10-25T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Pneumonie"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Toux productive, fievre, foyer pulmonaire droit"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "5 mg/L"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_clean",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P048",
+    "stays": [
+      {
+        "stay_id": "P048_S01",
+        "visit_number": 1,
+        "date": "2024-04-05T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "55 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Syndrome grippal avec arthralgies"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P048_S02",
+        "visit_number": 2,
+        "date": "2024-08-04T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Douleurs articulaires post-infectieuses"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "80 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Arthrite reactionnelle post-infectieuse"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P048_S03",
+        "visit_number": 3,
+        "date": "2024-12-05T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Douleurs articulaires post-infectieuses"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "120 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Arthrite reactionnelle post-infectieuse"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P048_S04",
+        "visit_number": 4,
+        "date": "2024-12-26T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "55 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Arthrite reactionnelle post-infectieuse"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_noise",
+      "n_stays": 4
+    }
+  },
+  {
+    "patient_id": "P038",
+    "stays": [
+      {
+        "stay_id": "P038_S01",
+        "visit_number": 1,
+        "date": "2024-06-10T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Infection urinaire"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Fievre 38.5, brulures mictionnelles"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "5 mg/L"
+          },
+          {
+            "LIBELLE": "Biologie",
+            "REPONSE": "Bilan biologique normal"
+          }
+        ]
+      },
+      {
+        "stay_id": "P038_S02",
+        "visit_number": 2,
+        "date": "2024-09-13T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan preoperatoire"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Bilan avant chirurgie programmee"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_clean",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P047",
+    "stays": [
+      {
+        "stay_id": "P047_S01",
+        "visit_number": 1,
+        "date": "2024-05-12T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Fievre et arthralgies"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "120 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Infection bacterienne, arthralgies secondaires"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P047_S02",
+        "visit_number": 2,
+        "date": "2024-08-28T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "120 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Syndrome grippal avec arthralgies"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P047_S03",
+        "visit_number": 3,
+        "date": "2024-11-08T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Fievre et arthralgies"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "55 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Infection bacterienne, arthralgies secondaires"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P047_S04",
+        "visit_number": 4,
+        "date": "2024-12-23T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "35 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Syndrome grippal avec arthralgies"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_noise",
+      "n_stays": 4
+    }
+  },
+  {
+    "patient_id": "P003",
+    "stays": [
+      {
+        "stay_id": "P003_S01",
+        "visit_number": 1,
+        "date": "2024-04-25T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Consultation rhumatologie PR"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Douleur PIP et MTP, symetrique"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Articulations douloureuses: 8 petites articulations"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (120 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (35 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "48 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "31 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 10 mg/semaine"
+          },
+          {
+            "LIBELLE": "Duree des symptomes",
+            "REPONSE": "Depuis plus de 6 mois"
+          }
+        ]
+      },
+      {
+        "stay_id": "P003_S02",
+        "visit_number": 2,
+        "date": "2024-07-22T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Consultation rhumatologie PR"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Synovites MCP bilaterales"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Articulations douloureuses: 8 petites articulations"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (45 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (55 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "15 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "51 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_classic",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P041",
+    "stays": [
+      {
+        "stay_id": "P041_S01",
+        "visit_number": 1,
+        "date": "2024-04-11T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Goutte polyarticulaire"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Gonflement MTP1 bilateral"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Goutte polyarticulaire, uricemie 95 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      },
+      {
+        "stay_id": "P041_S02",
+        "visit_number": 2,
+        "date": "2024-09-13T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Lupus erythemateux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Arthralgies diffuses, rash malaire"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Lupus systemique, anti-DNA positif"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "12 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P041_S03",
+        "visit_number": 3,
+        "date": "2024-10-11T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Goutte polyarticulaire"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Gonflement MTP1 bilateral"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Goutte polyarticulaire, uricemie 95 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_mimic",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P018",
+    "stays": [
+      {
+        "stay_id": "P018_S01",
+        "visit_number": 1,
+        "date": "2024-05-02T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Consultation suivi rhumatologie"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Leflunomide 20mg/j"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Positif (63 UI/mL)"
+          }
+        ]
+      },
+      {
+        "stay_id": "P018_S02",
+        "visit_number": 2,
+        "date": "2024-08-24T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Vaccination"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P018_S03",
+        "visit_number": 3,
+        "date": "2024-12-14T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Renouvellement ordonnance PR"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Leflunomide 20mg/j"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "8 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P018_S04",
+        "visit_number": 4,
+        "date": "2024-12-14T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Grippe saisonniere"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_incomplete",
+      "n_stays": 4
+    }
+  },
+  {
+    "patient_id": "P026",
+    "stays": [
+      {
+        "stay_id": "P026_S01",
+        "visit_number": 1,
+        "date": "2024-04-08T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Douleur articulaire diffuse, pas de synovite franche"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "14 mg/L"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      },
+      {
+        "stay_id": "P026_S02",
+        "visit_number": 2,
+        "date": "2024-09-05T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Chute avec fracture poignet"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P026_S03",
+        "visit_number": 3,
+        "date": "2024-11-25T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Raideur matinale 30min, sensibilite MCP"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "14 mg/L"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_borderline",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P033",
+    "stays": [
+      {
+        "stay_id": "P033_S01",
+        "visit_number": 1,
+        "date": "2024-05-06T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle diabete"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Suivi diabete type 2, HbA1c a controler"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P033_S02",
+        "visit_number": 2,
+        "date": "2024-07-27T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Chute traumatisme"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Traumatisme cheville droite suite a chute"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "Biologie",
+            "REPONSE": "Bilan biologique normal"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_clean",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P046",
+    "stays": [
+      {
+        "stay_id": "P046_S01",
+        "visit_number": 1,
+        "date": "2024-05-25T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Douleurs articulaires post-infectieuses"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "55 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Arthrite reactionnelle post-infectieuse"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P046_S02",
+        "visit_number": 2,
+        "date": "2024-08-27T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "80 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Infection bacterienne, arthralgies secondaires"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      },
+      {
+        "stay_id": "P046_S03",
+        "visit_number": 3,
+        "date": "2024-11-27T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Fievre et arthralgies"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "80 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Infection bacterienne, arthralgies secondaires"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Conclusion",
+            "REPONSE": "Pas de polyarthrite rhumatoide"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_noise",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P001",
+    "stays": [
+      {
+        "stay_id": "P001_S01",
+        "visit_number": 1,
+        "date": "2024-05-02T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Controle PR sous traitement"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Douleurs MCP et poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Articulations douloureuses: 8 petites articulations"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (45 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (78 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "22 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "48 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 10 mg/semaine"
+          },
+          {
+            "LIBELLE": "Duree des symptomes",
+            "REPONSE": "Depuis plus de 6 mois"
+          }
+        ]
+      },
+      {
+        "stay_id": "P001_S02",
+        "visit_number": 2,
+        "date": "2024-07-17T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Grippe saisonniere"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_classic",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P022",
+    "stays": [
+      {
+        "stay_id": "P022_S01",
+        "visit_number": 1,
+        "date": "2024-06-08T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle MTX"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "MTX 20mg + adalimumab"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Douleur moderee poignets"
+          }
+        ]
+      },
+      {
+        "stay_id": "P022_S02",
+        "visit_number": 2,
+        "date": "2024-08-25T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle MTX"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "MTX 20mg + adalimumab"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_incomplete",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P029",
+    "stays": [
+      {
+        "stay_id": "P029_S01",
+        "visit_number": 1,
+        "date": "2024-05-15T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Douleur articulaire diffuse, pas de synovite franche"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "14 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Faiblement positif (30 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Symptomes depuis 2 mois"
+          }
+        ]
+      },
+      {
+        "stay_id": "P029_S02",
+        "visit_number": 2,
+        "date": "2024-08-19T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Raideur matinale 30min, sensibilite MCP"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "11 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Faiblement positif (24 UI/mL)"
+          }
+        ]
+      },
+      {
+        "stay_id": "P029_S03",
+        "visit_number": 3,
+        "date": "2024-10-12T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Raideur matinale 30min, sensibilite MCP"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "11 mg/L"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      },
+      {
+        "stay_id": "P029_S04",
+        "visit_number": 4,
+        "date": "2024-12-03T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Raideur matinale 30min, sensibilite MCP"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "11 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Faiblement positif (30 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_borderline",
+      "n_stays": 4
+    }
+  },
+  {
+    "patient_id": "P031",
+    "stays": [
+      {
+        "stay_id": "P031_S01",
+        "visit_number": 1,
+        "date": "2024-04-24T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Infection urinaire"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Fievre 38.5, brulures mictionnelles"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P031_S02",
+        "visit_number": 2,
+        "date": "2024-07-24T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle diabete"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Suivi diabete type 2, HbA1c a controler"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "5 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P031_S03",
+        "visit_number": 3,
+        "date": "2024-12-20T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan preoperatoire"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Bilan avant chirurgie programmee"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_clean",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P009",
+    "stays": [
+      {
+        "stay_id": "P009_S01",
+        "visit_number": 1,
+        "date": "2024-04-25T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Poussee inflammatoire PR"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Douleurs MCP et poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Synovites MCP 2,3,4 bilaterales, poignets gonfles"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (87 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (150 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "22 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "45 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 10 mg/semaine"
+          },
+          {
+            "LIBELLE": "Duree des symptomes",
+            "REPONSE": "Depuis plus de 6 mois"
+          },
+          {
+            "LIBELLE": "Imagerie",
+            "REPONSE": "Echographie: synovites actives grade 2-3"
+          }
+        ]
+      },
+      {
+        "stay_id": "P009_S02",
+        "visit_number": 2,
+        "date": "2024-08-26T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Controle PR sous traitement"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Synovites MCP bilaterales"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Synovites MCP 2,3,4 bilaterales, poignets gonfles"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (67 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (150 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "48 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "30 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          },
+          {
+            "LIBELLE": "Imagerie",
+            "REPONSE": "Echographie: synovites actives grade 2-3"
+          }
+        ]
+      },
+      {
+        "stay_id": "P009_S03",
+        "visit_number": 3,
+        "date": "2024-12-18T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Poussee inflammatoire PR"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Raideur matinale > 1h, MCP 2-3-4 gonfles"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Synovites MCP 2,3,4 bilaterales, poignets gonfles"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (87 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (150 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "65 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "34 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 20 mg/semaine"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_classic",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P021",
+    "stays": [
+      {
+        "stay_id": "P021_S01",
+        "visit_number": 1,
+        "date": "2024-05-20T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle MTX"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Leflunomide 20mg/j"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Douleur moderee poignets"
+          }
+        ]
+      },
+      {
+        "stay_id": "P021_S02",
+        "visit_number": 2,
+        "date": "2024-07-21T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle MTX"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "MTX 20mg + adalimumab"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "12 mg/L"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Douleur moderee poignets"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_incomplete",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P043",
+    "stays": [
+      {
+        "stay_id": "P043_S01",
+        "visit_number": 1,
+        "date": "2024-04-07T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Goutte polyarticulaire"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Gonflement MTP1 bilateral"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Goutte polyarticulaire, uricemie 95 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "25 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P043_S02",
+        "visit_number": 2,
+        "date": "2024-08-23T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Lupus erythemateux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Arthralgies diffuses, rash malaire"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Lupus systemique, anti-DNA positif"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "12 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P043_S03",
+        "visit_number": 3,
+        "date": "2024-12-20T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Lupus erythemateux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Arthralgies diffuses, rash malaire"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Lupus systemique, anti-DNA positif"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_mimic",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P015",
+    "stays": [
+      {
+        "stay_id": "P015_S01",
+        "visit_number": 1,
+        "date": "2024-04-03T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "32 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          }
+        ]
+      },
+      {
+        "stay_id": "P015_S02",
+        "visit_number": 2,
+        "date": "2024-08-25T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "25 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          }
+        ]
+      },
+      {
+        "stay_id": "P015_S03",
+        "visit_number": 3,
+        "date": "2024-10-24T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan hepatique (surveillance MTX)"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_seroneg",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P045",
+    "stays": [
+      {
+        "stay_id": "P045_S01",
+        "visit_number": 1,
+        "date": "2024-06-23T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Lupus erythemateux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Arthralgies diffuses, rash malaire"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Lupus systemique, anti-DNA positif"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "12 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P045_S02",
+        "visit_number": 2,
+        "date": "2024-08-16T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Lupus erythemateux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Arthralgies diffuses, rash malaire"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Lupus systemique, anti-DNA positif"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      },
+      {
+        "stay_id": "P045_S03",
+        "visit_number": 3,
+        "date": "2024-10-13T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Arthrose digitale"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Nodules Heberden, pas de synovite"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Arthrose erosive des mains, pas de PR"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_mimic",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P032",
+    "stays": [
+      {
+        "stay_id": "P032_S01",
+        "visit_number": 1,
+        "date": "2024-04-10T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Chute traumatisme"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Traumatisme cheville droite suite a chute"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "3 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P032_S02",
+        "visit_number": 2,
+        "date": "2024-07-18T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Chute traumatisme"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Traumatisme cheville droite suite a chute"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "2 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P032_S03",
+        "visit_number": 3,
+        "date": "2024-11-04T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Lombalgie mecanique"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Douleur lombaire mecanique, pas de syndrome inflammatoire"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "2 mg/L"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_clean",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P044",
+    "stays": [
+      {
+        "stay_id": "P044_S01",
+        "visit_number": 1,
+        "date": "2024-06-01T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Goutte polyarticulaire"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Gonflement MTP1 bilateral"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Goutte polyarticulaire, uricemie 95 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      },
+      {
+        "stay_id": "P044_S02",
+        "visit_number": 2,
+        "date": "2024-07-27T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Goutte polyarticulaire"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Gonflement MTP1 bilateral"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Goutte polyarticulaire, uricemie 95 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      },
+      {
+        "stay_id": "P044_S03",
+        "visit_number": 3,
+        "date": "2024-10-21T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Arthrose digitale"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Nodules Heberden, pas de synovite"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Arthrose erosive des mains, pas de PR"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_mimic",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P025",
+    "stays": [
+      {
+        "stay_id": "P025_S01",
+        "visit_number": 1,
+        "date": "2024-05-11T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle MTX"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Leflunomide 20mg/j"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "25 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P025_S02",
+        "visit_number": 2,
+        "date": "2024-09-02T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Renouvellement ordonnance PR"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "MTX 20mg + adalimumab"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "25 mg/L"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_incomplete",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P006",
+    "stays": [
+      {
+        "stay_id": "P006_S01",
+        "visit_number": 1,
+        "date": "2024-06-25T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Suivi polyarthrite rhumatoide"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Douleurs MCP et poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Articulations douloureuses: 8 petites articulations"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (67 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (35 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "22 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "40 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 20 mg/semaine"
+          },
+          {
+            "LIBELLE": "Duree des symptomes",
+            "REPONSE": "Depuis plus de 6 mois"
+          },
+          {
+            "LIBELLE": "Imagerie",
+            "REPONSE": "Echographie: synovites actives grade 2-3"
+          }
+        ]
+      },
+      {
+        "stay_id": "P006_S02",
+        "visit_number": 2,
+        "date": "2024-09-06T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Vaccination"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P006_S03",
+        "visit_number": 3,
+        "date": "2024-12-15T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Controle PR sous traitement"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Douleur PIP et MTP, symetrique"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Tumefaction PIP 2,3 main droite, MCP 2,3,4 bilateraux"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (230 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (150 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "22 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "46 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 20 mg/semaine"
+          },
+          {
+            "LIBELLE": "Duree des symptomes",
+            "REPONSE": "Depuis plus de 6 mois"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_classic",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P040",
+    "stays": [
+      {
+        "stay_id": "P040_S01",
+        "visit_number": 1,
+        "date": "2024-05-17T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle diabete"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Suivi diabete type 2, HbA1c a controler"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "Biologie",
+            "REPONSE": "Bilan biologique normal"
+          }
+        ]
+      },
+      {
+        "stay_id": "P040_S02",
+        "visit_number": 2,
+        "date": "2024-09-14T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Pneumonie"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Toux productive, fievre, foyer pulmonaire droit"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P040_S03",
+        "visit_number": 3,
+        "date": "2024-11-11T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Pneumonie"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Toux productive, fievre, foyer pulmonaire droit"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "2 mg/L"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_clean",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P011",
+    "stays": [
+      {
+        "stay_id": "P011_S01",
+        "visit_number": 1,
+        "date": "2024-05-22T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "12 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Suivi depuis 3 ans, maladie chronique"
+          }
+        ]
+      },
+      {
+        "stay_id": "P011_S02",
+        "visit_number": 2,
+        "date": "2024-07-22T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "25 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Suivi depuis 3 ans, maladie chronique"
+          }
+        ]
+      },
+      {
+        "stay_id": "P011_S03",
+        "visit_number": 3,
+        "date": "2024-10-22T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "18 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_seroneg",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P012",
+    "stays": [
+      {
+        "stay_id": "P012_S01",
+        "visit_number": 1,
+        "date": "2024-04-01T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "32 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          }
+        ]
+      },
+      {
+        "stay_id": "P012_S02",
+        "visit_number": 2,
+        "date": "2024-07-17T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "12 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          }
+        ]
+      },
+      {
+        "stay_id": "P012_S03",
+        "visit_number": 3,
+        "date": "2024-10-12T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Suivi polyarthrite rhumatoide seronegative"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "PR seronegative depuis 2020, sous MTX"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Raideur matinale 45min, douleur poignets bilateraux"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Synovites poignets et MCP 2,3 bilateraux"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "25 mg/L"
+          },
+          {
+            "LIBELLE": "Traitement",
+            "REPONSE": "Methotrexate 15 mg/semaine + acide folique"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Suivi depuis 3 ans, maladie chronique"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_seroneg",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P037",
+    "stays": [
+      {
+        "stay_id": "P037_S01",
+        "visit_number": 1,
+        "date": "2024-05-23T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Lombalgie mecanique"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Douleur lombaire mecanique, pas de syndrome inflammatoire"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P037_S02",
+        "visit_number": 2,
+        "date": "2024-08-26T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan preoperatoire"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Bilan avant chirurgie programmee"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P037_S03",
+        "visit_number": 3,
+        "date": "2024-12-08T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Pneumonie"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Toux productive, fievre, foyer pulmonaire droit"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "2 mg/L"
+          }
+        ]
+      },
+      {
+        "stay_id": "P037_S04",
+        "visit_number": 4,
+        "date": "2024-12-03T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Pneumonie"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Toux productive, fievre, foyer pulmonaire droit"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_clean",
+      "n_stays": 4
+    }
+  },
+  {
+    "patient_id": "P027",
+    "stays": [
+      {
+        "stay_id": "P027_S01",
+        "visit_number": 1,
+        "date": "2024-05-04T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Douleur articulaire diffuse, pas de synovite franche"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "14 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Faiblement positif (25 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          }
+        ]
+      },
+      {
+        "stay_id": "P027_S02",
+        "visit_number": 2,
+        "date": "2024-07-19T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Raideur matinale 30min, sensibilite MCP"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "14 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Faiblement positif (34 UI/mL)"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Symptomes depuis 2 mois"
+          }
+        ]
+      },
+      {
+        "stay_id": "P027_S03",
+        "visit_number": 3,
+        "date": "2024-10-26T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Douleur articulaire diffuse, pas de synovite franche"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "8 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Faiblement positif (31 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Symptomes depuis 2 mois"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_borderline",
+      "n_stays": 3
+    }
+  },
+  {
+    "patient_id": "P034",
+    "stays": [
+      {
+        "stay_id": "P034_S01",
+        "visit_number": 1,
+        "date": "2024-06-02T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan preoperatoire"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Bilan avant chirurgie programmee"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P034_S02",
+        "visit_number": 2,
+        "date": "2024-08-03T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Infection urinaire"
+          },
+          {
+            "LIBELLE": "Description",
+            "REPONSE": "Fievre 38.5, brulures mictionnelles"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Pas d'atteinte articulaire inflammatoire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA-",
+      "profile": "RA-_clean",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P016",
+    "stays": [
+      {
+        "stay_id": "P016_S01",
+        "visit_number": 1,
+        "date": "2024-05-19T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Consultation suivi rhumatologie"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Leflunomide 20mg/j"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "8 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Positif (49 UI/mL)"
+          }
+        ]
+      },
+      {
+        "stay_id": "P016_S02",
+        "visit_number": 2,
+        "date": "2024-07-22T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Renouvellement ordonnance PR"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Positif (35 UI/mL)"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Polyarthrite rhumatoide connue"
+          }
+        ]
+      },
+      {
+        "stay_id": "P016_S03",
+        "visit_number": 3,
+        "date": "2024-10-14T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Controle MTX"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "MTX 20mg + adalimumab"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "25 mg/L"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Douleur moderee poignets"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Positif (60 UI/mL)"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Polyarthrite rhumatoide connue"
+          }
+        ]
+      },
+      {
+        "stay_id": "P016_S04",
+        "visit_number": 4,
+        "date": "2024-12-26T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan hepatique (surveillance MTX)"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_incomplete",
+      "n_stays": 4
+    }
+  },
+  {
+    "patient_id": "P010",
+    "stays": [
+      {
+        "stay_id": "P010_S01",
+        "visit_number": 1,
+        "date": "2024-04-20T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Poussee inflammatoire PR"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Raideur matinale > 1h, MCP 2-3-4 gonfles"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Synovites MCP 2,3,4 bilaterales, poignets gonfles"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (87 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (35 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "15 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "55 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 20 mg/semaine"
+          },
+          {
+            "LIBELLE": "Duree des symptomes",
+            "REPONSE": "Depuis plus de 6 mois"
+          },
+          {
+            "LIBELLE": "Imagerie",
+            "REPONSE": "Echographie: synovites actives grade 2-3"
+          }
+        ]
+      },
+      {
+        "stay_id": "P010_S02",
+        "visit_number": 2,
+        "date": "2024-08-04T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Grippe saisonniere"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_classic",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P028",
+    "stays": [
+      {
+        "stay_id": "P028_S01",
+        "visit_number": 1,
+        "date": "2024-04-28T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Raideur matinale 30min, sensibilite MCP"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "14 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Faiblement positif (33 UI/mL)"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Symptomes depuis 2 mois"
+          }
+        ]
+      },
+      {
+        "stay_id": "P028_S02",
+        "visit_number": 2,
+        "date": "2024-09-05T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan arthralgies inflammatoires"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Raideur matinale 30min, sensibilite MCP"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "8 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Faiblement positif (33 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP",
+            "REPONSE": "Negatif"
+          },
+          {
+            "LIBELLE": "Evolution",
+            "REPONSE": "Symptomes depuis 2 mois"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_borderline",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P024",
+    "stays": [
+      {
+        "stay_id": "P024_S01",
+        "visit_number": 1,
+        "date": "2024-06-23T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Renouvellement ordonnance PR"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Leflunomide 20mg/j"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "8 mg/L"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Polyarthrite rhumatoide connue"
+          }
+        ]
+      },
+      {
+        "stay_id": "P024_S02",
+        "visit_number": 2,
+        "date": "2024-08-01T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Vaccination"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P024_S03",
+        "visit_number": 3,
+        "date": "2024-11-14T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Renouvellement ordonnance PR"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "MTX 20mg + adalimumab"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "25 mg/L"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Positif (58 UI/mL)"
+          }
+        ]
+      },
+      {
+        "stay_id": "P024_S04",
+        "visit_number": 4,
+        "date": "2024-12-13T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Renouvellement ordonnance PR"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "MTX 20mg + adalimumab"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "25 mg/L"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Douleur moderee poignets"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Positif (46 UI/mL)"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Polyarthrite rhumatoide connue"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_incomplete",
+      "n_stays": 4
+    }
+  },
+  {
+    "patient_id": "P023",
+    "stays": [
+      {
+        "stay_id": "P023_S01",
+        "visit_number": 1,
+        "date": "2024-06-28T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Consultation suivi rhumatologie"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Leflunomide 20mg/j"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "25 mg/L"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Douleur moderee poignets"
+          },
+          {
+            "LIBELLE": "Diagnostic",
+            "REPONSE": "Polyarthrite rhumatoide connue"
+          }
+        ]
+      },
+      {
+        "stay_id": "P023_S02",
+        "visit_number": 2,
+        "date": "2024-08-15T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Renouvellement ordonnance PR"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "18 mg/L"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Douleur moderee poignets"
+          }
+        ]
+      },
+      {
+        "stay_id": "P023_S03",
+        "visit_number": 3,
+        "date": "2024-10-09T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Bilan hepatique (surveillance MTX)"
+          },
+          {
+            "LIBELLE": "Examen",
+            "REPONSE": "Examen general, pas de poussee articulaire"
+          }
+        ]
+      },
+      {
+        "stay_id": "P023_S04",
+        "visit_number": 4,
+        "date": "2024-12-14T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Consultation suivi rhumatologie"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 15 mg/semaine"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_incomplete",
+      "n_stays": 4
+    }
+  },
+  {
+    "patient_id": "P019",
+    "stays": [
+      {
+        "stay_id": "P019_S01",
+        "visit_number": 1,
+        "date": "2024-05-11T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Consultation suivi rhumatologie"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "MTX 20mg + adalimumab"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "8 mg/L"
+          },
+          {
+            "LIBELLE": "Douleur",
+            "REPONSE": "Douleur moderee poignets"
+          }
+        ]
+      },
+      {
+        "stay_id": "P019_S02",
+        "visit_number": 2,
+        "date": "2024-08-13T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif",
+            "REPONSE": "Renouvellement ordonnance PR"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Leflunomide 20mg/j"
+          },
+          {
+            "LIBELLE": "RF",
+            "REPONSE": "Positif (52 UI/mL)"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_incomplete",
+      "n_stays": 2
+    }
+  },
+  {
+    "patient_id": "P004",
+    "stays": [
+      {
+        "stay_id": "P004_S01",
+        "visit_number": 1,
+        "date": "2024-06-18T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Controle PR sous traitement"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Raideur matinale > 1h, MCP 2-3-4 gonfles"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Tumefaction PIP 2,3 main droite, MCP 2,3,4 bilateraux"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (45 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (55 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "65 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "37 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 20 mg/semaine"
+          },
+          {
+            "LIBELLE": "Imagerie",
+            "REPONSE": "Echographie: synovites actives grade 2-3"
+          }
+        ]
+      },
+      {
+        "stay_id": "P004_S02",
+        "visit_number": 2,
+        "date": "2024-09-11T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Consultation rhumatologie PR"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Synovites MCP bilaterales"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Tumefaction PIP 2,3 main droite, MCP 2,3,4 bilateraux"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (87 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (35 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "22 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "27 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 10 mg/semaine"
+          },
+          {
+            "LIBELLE": "Imagerie",
+            "REPONSE": "Echographie: synovites actives grade 2-3"
+          }
+        ]
+      },
+      {
+        "stay_id": "P004_S03",
+        "visit_number": 3,
+        "date": "2024-12-14T08:00:00",
+        "records": [
+          {
+            "LIBELLE": "Motif de consultation",
+            "REPONSE": "Consultation rhumatologie PR"
+          },
+          {
+            "LIBELLE": "Antecedents",
+            "REPONSE": "Polyarthrite rhumatoide diagnostiquee depuis 2019"
+          },
+          {
+            "LIBELLE": "Douleur articulaire",
+            "REPONSE": "Raideur matinale > 1h, MCP 2-3-4 gonfles"
+          },
+          {
+            "LIBELLE": "Examen clinique",
+            "REPONSE": "Synovites MCP 2,3,4 bilaterales, poignets gonfles"
+          },
+          {
+            "LIBELLE": "RF (Facteur Rhumatoide)",
+            "REPONSE": "Positif (120 UI/mL)"
+          },
+          {
+            "LIBELLE": "Anti-CCP (ACPA)",
+            "REPONSE": "Positif (150 U/mL)"
+          },
+          {
+            "LIBELLE": "CRP",
+            "REPONSE": "48 mg/L"
+          },
+          {
+            "LIBELLE": "VS",
+            "REPONSE": "48 mm/h"
+          },
+          {
+            "LIBELLE": "Traitement en cours",
+            "REPONSE": "Methotrexate 10 mg/semaine"
+          },
+          {
+            "LIBELLE": "Duree des symptomes",
+            "REPONSE": "Depuis plus de 6 mois"
+          }
+        ]
+      }
+    ],
+    "ground_truth": {
+      "phenotype": "RA+",
+      "profile": "RA+_classic",
+      "n_stays": 3
+    }
+  }
+]
