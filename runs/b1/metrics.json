@@ -1,22 +1,22 @@
 {
   "patient_level": {
-    "accuracy": 0.6,
-    "precision": 1.0,
-    "recall": 0.4286,
-    "f1": 0.6,
-    "tp": 3,
-    "fp": 0,
-    "tn": 3,
-    "fn": 4,
+    "accuracy": 0.78,
+    "precision": 0.8636,
+    "recall": 0.7037,
+    "f1": 0.7755,
+    "tp": 19,
+    "fp": 3,
+    "tn": 20,
+    "fn": 8,
     "errors": [
       {
-        "id": "10003",
+        "id": "10002",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "10007",
+        "id": "10003",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
@@ -32,19 +32,67 @@
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
+      },
+      {
+        "id": "10017",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10019",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "10025",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "10032",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "10042",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10045",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "10047",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
       }
     ]
   },
   "stay_level": {
-    "accuracy": 0.7931,
-    "precision": 0.8571,
-    "recall": 0.5455,
-    "f1": 0.6667,
-    "tp": 6,
-    "fp": 1,
-    "tn": 17,
-    "fn": 5,
+    "accuracy": 0.8358,
+    "precision": 0.8667,
+    "recall": 0.5909,
+    "f1": 0.7027,
+    "tp": 26,
+    "fp": 4,
+    "tn": 86,
+    "fn": 18,
     "errors": [
+      {
+        "id": "1000201",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
       {
         "id": "1000300",
         "pred": "RA-",
@@ -52,19 +100,13 @@
         "type": "FN"
       },
       {
-        "id": "1000405",
-        "pred": "RA+",
-        "true": "RA-",
-        "type": "FP"
-      },
-      {
-        "id": "1000700",
+        "id": "1000801",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "1000801",
+        "id": "1000803",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
@@ -77,6 +119,102 @@
       },
       {
         "id": "1001001",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1001100",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1001105",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1001302",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1001700",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1001701",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1001900",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "1002301",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "1002303",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1002802",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1003402",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "1004202",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1004203",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1004303",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1004500",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "1004600",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "1004700",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"

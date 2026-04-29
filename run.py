@@ -497,8 +497,7 @@ def main():
     if input_format == "parquet":
         from phenorag.preprocess import preprocess_parquet
         preprocess_dir = Path(run_dir) / "preprocessed"
-        corpus_path = preprocess_parquet(args.corpus, str(preprocess_dir))
-
+        corpus_path = preprocess_parquet(args.corpus, str(preprocess_dir), gt_path=args.gt)
     if args.only == "preprocess": return
 
     if args.only == "eval":
