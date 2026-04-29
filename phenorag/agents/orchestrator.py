@@ -388,12 +388,45 @@ class Orchestrator:
     # MAIN ENTRY
     # ══════════════════════════════════════════════════════════
 
+    # ══════════════════════════════════════════════════════════
+    # CHECKPOINT HELPERS
+    # ══════════════════════════════════════════════════════════
+
+    def _ckpt_path(self, out: Path) -> Path:
+        return out / "checkpoint.json"
+
+    def _save_checkpoint(self, out: Path, stage: str, data: dict):
+        """Sauvegarde atomique du checkpoint global (stage + données partielles)."""
+        ckpt = {"stage": stage, "saved_at": time.time(), **data}
+        tmp = self._ckpt_path(out).with_suffix(".tmp")
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(ckpt, f, ensure_ascii=False)
+        tmp.replace(self._ckpt_path(out))  # remplacement atomique
+        print(f"  [Checkpoint] stage={stage} -> {self._ckpt_path(out)}")
+
+    def _load_checkpoint(self, out: Path) -> Optional[dict]:
+        p = self._ckpt_path(out)
+        if not p.exists():
+            return None
+        try:
+            with open(p, "r", encoding="utf-8") as f:
+                ckpt = json.load(f)
+            print(f"  [Reprise] Checkpoint trouvé : stage={ckpt.get('stage')} "
+                  f"({time.strftime('%H:%M:%S', time.localtime(ckpt.get('saved_at', 0)))})")
+            return ckpt
+        except Exception as e:
+            print(f"  [Reprise] Checkpoint corrompu, ignoré : {e}")
+            return None
+
+    # ══════════════════════════════════════════════════════════
+    # MAIN ENTRY
+    # ══════════════════════════════════════════════════════════
+
     def run(self, corpus_path: str, output_dir: str, skip_extraction: bool = False):
         out = Path(output_dir)
         out.mkdir(parents=True, exist_ok=True)
-        facts_path = out / "facts.jsonl"
-        assess_path = out / "assessments.jsonl"
-        # PATCH: decisions.json (pas .jsonl) pour correspondre à evaluate() dans run.py
+        facts_path    = out / "facts.jsonl"
+        assess_path   = out / "assessments.jsonl"
         decisions_path = out / "decisions.json"
         arch = self.pcfg.architecture.upper()
 
@@ -401,73 +434,126 @@ class Orchestrator:
         print(f"LangGraph Orchestrator — {arch}")
         print(f"{'='*60}")
 
-        if skip_extraction and facts_path.exists():
+        # ── Reprise depuis checkpoint ──────────────────────────
+        ckpt = self._load_checkpoint(out)
+        resume_stage  = ckpt.get("stage") if ckpt else None
+        done_stay_ids: set = set(ckpt.get("done_stay_ids", [])) if ckpt else set()
+
+        # ── Tronquer le corpus AVANT tout traitement ──────────
+        raw_corpus = json.load(open(corpus_path, "r", encoding="utf-8"))
+        if self.n_patients is not None:
+            raw_corpus = raw_corpus[:self.n_patients]
+            print(f"  [n_patients] Limité à {self.n_patients} patients "
+                  f"({sum(len(p.get('stays',[])) for p in raw_corpus)} séjours)")
+
+        # Écrire un corpus tronqué temporaire si n_patients actif
+        if self.n_patients is not None:
+            import tempfile
+            tmp_corpus = out / "_corpus_subset.json"
+            with open(tmp_corpus, "w", encoding="utf-8") as f:
+                json.dump(raw_corpus, f, ensure_ascii=False)
+            effective_corpus_path = str(tmp_corpus)
+        else:
+            effective_corpus_path = corpus_path
+
+        # ── Stage 1 : Extraction ───────────────────────────────
+        if resume_stage in ("stage2", "stage3") and facts_path.exists():
+            print(f"[Reprise Stage 1] facts.jsonl existant réutilisé ({facts_path})")
+        elif skip_extraction and facts_path.exists():
             print(f"[SKIP] Using existing {facts_path}")
         else:
-            self.agent1.process_corpus(corpus_path, str(facts_path))
+            print(f"\nStage 1: Extraction")
+            print("-" * 60)
+            self.agent1.process_corpus(effective_corpus_path, str(facts_path))
+            self._save_checkpoint(out, "stage1_done", {"done_stay_ids": []})
 
         with open(facts_path, "r", encoding="utf-8") as f:
             all_facts = [json.loads(line) for line in f]
-        raw_corpus = json.load(open(corpus_path, "r", encoding="utf-8"))
-
-        # PATCH: support --n-patients pour limiter le corpus
-        if self.n_patients is not None:
-            raw_corpus = raw_corpus[:self.n_patients]
-            patient_ids = {p.get("patient_id") for p in raw_corpus}
-            all_facts = [f for f in all_facts if f.get("patient_id") in patient_ids]
-            print(f"  [n_patients] Limité à {self.n_patients} patients ({len(all_facts)} séjours)")
 
         raw_stays = {s["stay_id"]: s for p in raw_corpus for s in p.get("stays", [])}
 
-        print(f"\nStage 2: LangGraph {arch} ({len(all_facts)} stays)")
-        print("-" * 60)
-        t0 = time.time()
-        last_checkpoint = t0
+        # ── Stage 2 : Raisonnement séjour ─────────────────────
+        if resume_stage == "stage3" and assess_path.exists():
+            print(f"[Reprise Stage 2] assessments.jsonl existant réutilisé")
+            with open(assess_path, "r", encoding="utf-8") as f:
+                assessments = [json.loads(l) for l in f]
+        else:
+            # Charger les assessments déjà faits si reprise partielle de stage2
+            assessments: List[dict] = []
+            if resume_stage == "stage2" and assess_path.exists():
+                with open(assess_path, "r", encoding="utf-8") as f:
+                    assessments = [json.loads(l) for l in f]
+                print(f"[Reprise Stage 2] {len(assessments)} assessments récupérés, "
+                      f"{len(done_stay_ids)} séjours déjà traités")
 
-        assessments = []
-        for i, facts in enumerate(all_facts, 1):
-            sid = facts.get("stay_id", "?")
-            pid = facts.get("patient_id", "?")
+            remaining = [fa for fa in all_facts
+                         if fa.get("stay_id") not in done_stay_ids]
+            total = len(all_facts)
+            # Checkpoint toutes les ~10% des séjours restants, min 5, max 50
+            ckpt_every_n = max(5, min(50, len(remaining) // 10 or 5))
 
-            state: StayState = {
-                "stay_facts": facts, "raw_stay": raw_stays.get(sid),
-                "patient_id": pid, "stay_id": sid,
-                "assessment": None, "feedback_cycle": 0,
-                "confirmed_absent": [], "route": "",
-                "voter_assessments": [], "final_assessment": None, "trace": [],
-            }
+            print(f"\nStage 2: LangGraph {arch} "
+                  f"({len(remaining)}/{total} séjours restants)")
+            print("-" * 60)
+            t0 = time.time()
+            last_checkpoint = t0
 
-            config = {"configurable": {"thread_id": f"{pid}_{sid}"}}
-            result = self.graph.invoke(state, config)
+            for i, facts in enumerate(remaining, len(assessments) + 1):
+                sid = facts.get("stay_id", "?")
+                pid = facts.get("patient_id", "?")
 
-            final = result.get("final_assessment", {})
-            if final:
-                assessments.append(final)
-                print(f"  [{i}/{len(all_facts)}] {pid}/{sid} -> "
-                      f"{final.get('final_stay_label', '?')} "
-                      f"(conf={final.get('confidence', 0):.2f}, "
-                      f"comp={final.get('completeness', 0):.2f}) [{arch}]")
+                state: StayState = {
+                    "stay_facts": facts, "raw_stay": raw_stays.get(sid),
+                    "patient_id": pid, "stay_id": sid,
+                    "assessment": None, "feedback_cycle": 0,
+                    "confirmed_absent": [], "route": "",
+                    "voter_assessments": [], "final_assessment": None, "trace": [],
+                }
 
-            # PATCH: checkpoint périodique (toutes les N minutes)
-            now = time.time()
-            if (now - last_checkpoint) >= self.checkpoint_interval * 60:
-                ckpt_path = out / "assessments_checkpoint.jsonl"
-                with open(ckpt_path, "w", encoding="utf-8") as f:
-                    for a in assessments:
-                        f.write(json.dumps(a, ensure_ascii=False) + "\n")
-                print(f"  [Checkpoint] {len(assessments)} assessments sauvegardés -> {ckpt_path}")
-                last_checkpoint = now
+                config = {"configurable": {"thread_id": f"{pid}_{sid}"}}
+                result = self.graph.invoke(state, config)
 
-        print(f"\n  {len(assessments)} assessments in {time.time()-t0:.1f}s")
+                final = result.get("final_assessment", {})
+                if final:
+                    assessments.append(final)
+                    done_stay_ids.add(sid)
+                    print(f"  [{i}/{total}] {pid}/{sid} -> "
+                          f"{final.get('final_stay_label', '?')} "
+                          f"(conf={final.get('confidence', 0):.2f}, "
+                          f"comp={final.get('completeness', 0):.2f}) [{arch}]")
 
-        with open(assess_path, "w", encoding="utf-8") as f:
-            for a in assessments:
-                f.write(json.dumps(a, ensure_ascii=False) + "\n")
+                # Checkpoint : toutes les N séjours OU toutes les X minutes
+                now = time.time()
+                n_done = len(assessments) - (total - len(remaining))
+                time_trigger = (now - last_checkpoint) >= self.checkpoint_interval * 60
+                count_trigger = n_done > 0 and n_done % ckpt_every_n == 0
+                if time_trigger or count_trigger:
+                    reason = "timer" if time_trigger else f"every {ckpt_every_n} stays"
+                    with open(assess_path, "w", encoding="utf-8") as f:
+                        for a in assessments:
+                            f.write(json.dumps(a, ensure_ascii=False) + "\n")
+                    self._save_checkpoint(out, "stage2", {
+                        "done_stay_ids": list(done_stay_ids),
+                        "n_assessments": len(assessments),
+                        "reason": reason,
+                    })
+                    last_checkpoint = now
 
-        # Stage 3
+            print(f"\n  {len(assessments)} assessments in {time.time()-t0:.1f}s")
+
+            # Sauvegarde finale stage 2
+            with open(assess_path, "w", encoding="utf-8") as f:
+                for a in assessments:
+                    f.write(json.dumps(a, ensure_ascii=False) + "\n")
+            self._save_checkpoint(out, "stage3", {
+                "done_stay_ids": list(done_stay_ids),
+                "n_assessments": len(assessments),
+            })
+
+        # ── Stage 3 : Agrégation patient ──────────────────────
         print(f"\nStage 3: Patient Aggregation")
         print("-" * 60)
-        by_patient = defaultdict(list)
+        by_patient: dict = defaultdict(list)
         for a in assessments:
             by_patient[a["patient_id"]].append(a)
 
@@ -478,9 +564,14 @@ class Orchestrator:
             print(f"  {pid} ({dec.n_stays} stays) -> {dec.final_label} "
                   f"(conf={dec.final_confidence:.2f})")
 
-        # PATCH: écriture en JSON (liste) pour compatibilité avec evaluate()
         with open(decisions_path, "w", encoding="utf-8") as f:
             json.dump(decisions, f, indent=2, ensure_ascii=False)
+
+        # Checkpoint final : pipeline complet
+        self._save_checkpoint(out, "done", {
+            "n_patients": len(decisions),
+            "n_assessments": len(assessments),
+        })
 
         print(f"\n-> {output_dir}/")
         return decisions

@@ -415,36 +415,14 @@ def evaluate(run_dir: str, gt_path: str, gt_patient_agg: str = "any_positive"):
         with open(assess_path, "r", encoding="utf-8") as f:
             assessments = [json.loads(l) for l in f]
 
-        # Reconstruction de la table NIP → [NDA ordonnés] depuis le GT
-        import csv as _csv
-        nip_to_ndas: Dict[str, list] = {}
-        with open(gt_path, "r", encoding="utf-8") as f:
-            reader = _csv.DictReader(f)
-            cols = [c.strip() for c in (reader.fieldnames or [])]
-            col_map = {c.lower(): c for c in cols}
-            pid_col  = col_map.get("nip") or col_map.get("patient_id")
-            stay_col = col_map.get("nda") or col_map.get("stay_id")
-            for row in reader:
-                pid = _normalize_id(row.get(pid_col, ""))
-                nda = str(row.get(stay_col, "")).strip()
-                nip_to_ndas.setdefault(pid, []).append(nda)
-
         stay_pairs = []
         for a in assessments:
-            pid = _normalize_id(a.get("patient_id", ""))
-            visit_num = a.get("extracted_facts", {}).get("visit_number")
-            if visit_num is None:
-                continue
-            ndas = nip_to_ndas.get(pid, [])
-            idx = int(visit_num) - 1  # visit_number commence à 1
-            if idx < 0 or idx >= len(ndas):
-                continue
-            nda = ndas[idx]
-            true_label = gt.get(f"stay:{nda}")
+            sid = str(a.get("stay_id", "")).strip().replace("NDA", "")
+            true_label = gt.get(f"stay:{sid}")
             if true_label is None:
                 continue
             pred = a.get("final_stay_label", "")
-            stay_pairs.append((pred, true_label, f"{pid}_v{visit_num}"))
+            stay_pairs.append((pred, true_label, sid))
         if stay_pairs:
             stay_metrics = _compute_metrics(stay_pairs, "Séjour-level ")
         else:

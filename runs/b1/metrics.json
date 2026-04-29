@@ -1,20 +1,14 @@
 {
   "patient_level": {
-    "accuracy": 0.82,
-    "precision": 0.9091,
-    "recall": 0.7407,
-    "f1": 0.8163,
-    "tp": 20,
-    "fp": 2,
-    "tn": 21,
-    "fn": 7,
+    "accuracy": 0.85,
+    "precision": 1.0,
+    "recall": 0.75,
+    "f1": 0.8571,
+    "tp": 9,
+    "fp": 0,
+    "tn": 8,
+    "fn": 3,
     "errors": [
-      {
-        "id": "10002",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
       {
         "id": "10003",
         "pred": "RA-",
@@ -22,43 +16,13 @@
         "type": "FN"
       },
       {
-        "id": "10010",
+        "id": "10007",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "10017",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10025",
-        "pred": "RA+",
-        "true": "RA-",
-        "type": "FP"
-      },
-      {
-        "id": "10028",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10032",
-        "pred": "RA+",
-        "true": "RA-",
-        "type": "FP"
-      },
-      {
-        "id": "10042",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10047",
+        "id": "10009",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
@@ -66,119 +30,53 @@
     ]
   },
   "stay_level": {
-    "accuracy": 0.8657,
-    "precision": 1.0,
-    "recall": 0.5909,
-    "f1": 0.7429,
-    "tp": 26,
-    "fp": 0,
-    "tn": 90,
-    "fn": 18,
+    "accuracy": 0.8871,
+    "precision": 0.9412,
+    "recall": 0.7273,
+    "f1": 0.8205,
+    "tp": 16,
+    "fp": 1,
+    "tn": 39,
+    "fn": 6,
     "errors": [
       {
-        "id": "10002_v2",
+        "id": "1000300",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "10003_v1",
+        "id": "1000402",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "10008_v4",
+        "id": "1000700",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "10010_v2",
+        "id": "1000901",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "10011_v1",
+        "id": "1001101",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "1001403",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "10011_v6",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10013_v3",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10017_v1",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10017_v2",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10023_v4",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10024_v3",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10028_v1",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10028_v3",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10034_v2",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10042_v3",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10042_v4",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10043_v4",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10047_v1",
+        "id": "1001701",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
