@@ -83,11 +83,22 @@ def parquet_to_corpus(parquet_path: str,
             raise ValueError(f"Column '{col_val}' not found. Available: {available}")
 
     # Group by patient → stays → records
-    patients_dict: Dict[str, Dict[str, List[Dict]]] = defaultdict(lambda: defaultdict(list))
+    # Structure intermédiaire : pid → sid(NISEJOUR) → {nda, records}
+    patients_dict: Dict[str, Dict[str, Dict]] = defaultdict(lambda: defaultdict(lambda: {"nda": None, "records": []}))
 
     for _, row in df.iterrows():
-        pid = str(row[patient_col])
-        sid = str(row[stay_col])
+        # Normalise NIP : "10001.0" → "10001"
+        try:
+            pid = str(int(float(str(row[patient_col]))))
+        except (ValueError, TypeError):
+            pid = str(row[patient_col])
+
+        # Normalise NISEJOUR : utilisé uniquement pour grouper, pas comme stay_id final
+        try:
+            sid = str(int(float(str(row[stay_col]))))
+        except (ValueError, TypeError):
+            sid = str(row[stay_col])
+
         label = str(row.get(label_col, "")) if not pd.isna(row.get(label_col)) else ""
         response = str(row.get(response_col, "")) if not pd.isna(row.get(response_col)) else ""
 
@@ -96,22 +107,29 @@ def parquet_to_corpus(parquet_path: str,
 
         record = {"LIBELLE": label.strip(), "REPONSE": response.strip()}
 
-        # Add NDA if available
+        # Récupère le NDA pour ce séjour (même valeur sur toutes les lignes du séjour)
         if nda_col in df.columns and not pd.isna(row.get(nda_col)):
-            record["NDA"] = str(row[nda_col])
+            try:
+                nda = str(int(float(str(row[nda_col]))))
+            except (ValueError, TypeError):
+                nda = str(row[nda_col]).strip()
+            patients_dict[pid][sid]["nda"] = nda
 
-        patients_dict[pid][sid].append(record)
+        patients_dict[pid][sid]["records"].append(record)
 
     # Build corpus structure
     corpus = []
     for pid in sorted(patients_dict.keys()):
         stays = []
-        for i, (sid, records) in enumerate(sorted(patients_dict[pid].items()), 1):
+        for i, (sid, stay_data) in enumerate(sorted(patients_dict[pid].items()), 1):
+            nda = stay_data["nda"]
+            # stay_id = NDA si disponible, sinon NISEJOUR normalisé
+            stay_id = nda if nda else sid
             stays.append({
-                "stay_id": f"{pid}_{sid}",
+                "stay_id": stay_id,
                 "date": "",
                 "visit_number": i,
-                "records": records,
+                "records": stay_data["records"],
             })
         corpus.append({
             "patient_id": pid,
