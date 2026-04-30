@@ -43,10 +43,15 @@ def _clean_nda(val: str) -> str:
 
 
 def _load_gt_mapping(gt_path: str) -> Dict[str, str]:
-    """Charge la table NDA → NIP depuis le GT CSV."""
+    """Charge la table NDA → NIP depuis le GT CSV.
+    Détecte automatiquement le délimiteur (, ou ;) et le BOM UTF-8.
+    """
     nda_to_nip: Dict[str, str] = {}
-    with open(gt_path, "r", encoding="utf-8") as f:
-        reader = _csv.DictReader(f)
+    with open(gt_path, "r", encoding="utf-8-sig") as f:
+        sample = f.read(4096)
+        dialect = _csv.Sniffer().sniff(sample, delimiters=",;\t|")
+        f.seek(0)
+        reader = _csv.DictReader(f, dialect=dialect)
         cols = [c.strip() for c in (reader.fieldnames or [])]
         col_map = {c.lower(): c for c in cols}
         nip_col = col_map.get("nip") or col_map.get("patient_id")
@@ -61,6 +66,24 @@ def _load_gt_mapping(gt_path: str) -> Dict[str, str]:
     return nda_to_nip
 
 
+def _safe_str(val, default: str = "") -> str:
+    """Convertit n'importe quelle valeur en str propre, gère NaN/None/bytes."""
+    if val is None:
+        return default
+    try:
+        import pandas as pd
+        if pd.isna(val):
+            return default
+    except (TypeError, ValueError, ImportError):
+        pass
+    if isinstance(val, bytes):
+        try:
+            return val.decode("utf-8", errors="replace").strip()
+        except Exception:
+            return default
+    return str(val).strip()
+
+
 def parquet_to_corpus(parquet_path: str,
                       stay_col: str = "NISEJOUR",
                       label_col: str = "LIBELLE",
@@ -73,6 +96,8 @@ def parquet_to_corpus(parquet_path: str,
 
     NIP résolu via jointure GT (NDA → NIP). NIPATIENT ignoré.
     Séjours absents du GT ignorés (hors cohorte).
+    Robuste aux types réels : floats, NaN, bytes, colonnes manquantes,
+    NDA dupliqués, valeurs nulles, encodages mixtes.
     """
     try:
         import pandas as pd
@@ -80,51 +105,89 @@ def parquet_to_corpus(parquet_path: str,
         raise ImportError("pip install pandas pyarrow")
 
     print(f"Loading {parquet_path}...")
-    df = pd.read_parquet(parquet_path)
+    try:
+        df = pd.read_parquet(parquet_path)
+    except Exception as e:
+        raise RuntimeError(f"Impossible de lire le parquet : {e}")
     print(f"  {len(df)} rows, columns: {list(df.columns)}")
 
-    for col_name, col_val in [("stay", stay_col), ("label", label_col), ("response", response_col)]:
-        if col_val not in df.columns:
-            raise ValueError(f"Colonne '{col_val}' absente. Disponibles : {', '.join(df.columns)}")
+    # ── Détection flexible des colonnes ──────────────────────────
+    col_lower = {c.lower().strip(): c for c in df.columns}
+
+    def _find_col(candidates: list, required: bool = True) -> Optional[str]:
+        for c in candidates:
+            if c.lower() in col_lower:
+                return col_lower[c.lower()]
+        if required:
+            raise ValueError(f"Aucune colonne parmi {candidates} trouvée. Disponibles : {list(df.columns)}")
+        return None
+
+    stay_col  = _find_col([stay_col,  "nisejour", "sejour_id", "visit_id", "encounter_id"])
+    label_col = _find_col([label_col, "libelle",  "label",     "item",     "question"])
+    resp_col  = _find_col([response_col, "reponse", "response", "valeur", "value", "resultat"])
+    nda_col   = _find_col([nda_col,   "nda",       "ndossier",  "dossier"], required=False)
+
+    print(f"  Colonnes → stay={stay_col} label={label_col} response={resp_col} nda={nda_col or 'absent→fallback NISEJOUR'}")
 
     # ── Jointure GT : NDA → NIP ───────────────────────────────────
     nda_to_nip: Dict[str, str] = {}
     if gt_path and Path(gt_path).exists():
-        nda_to_nip = _load_gt_mapping(gt_path)
-        print(f"  [GT] {len(nda_to_nip)} NDA→NIP chargés depuis {gt_path}")
+        try:
+            nda_to_nip = _load_gt_mapping(gt_path)
+            print(f"  [GT] {len(nda_to_nip)} NDA→NIP chargés depuis {gt_path}")
+        except Exception as e:
+            print(f"  [GT] Erreur chargement GT ({e}) — NIP=UNKNOWN pour tous")
     else:
         print("  [GT] Aucun GT fourni — tous les séjours inclus avec NIP=UNKNOWN")
 
     # ── Groupement parquet par NDA ────────────────────────────────
-    stays_dict: Dict[str, List[Dict]] = defaultdict(list)  # nda → [records]
+    stays_dict: Dict[str, List[Dict]] = defaultdict(list)
+    n_skipped_rows = 0
 
     for _, row in df.iterrows():
-        raw_nda = row.get(nda_col) if nda_col in df.columns else row.get(stay_col)
-        if raw_nda is None or pd.isna(raw_nda):
-            continue
-        nda = _clean_nda(str(raw_nda))
+        try:
+            # NDA : colonne NDA si dispo, sinon NISEJOUR comme fallback
+            raw_nda = row[nda_col] if nda_col else row[stay_col]
+            nda = _clean_nda(_safe_str(raw_nda))
+            if not nda:
+                n_skipped_rows += 1
+                continue
 
-        label    = "" if pd.isna(row.get(label_col))    else str(row[label_col]).strip()
-        response = "" if pd.isna(row.get(response_col)) else str(row[response_col]).strip()
-        if not label and not response:
+            label    = _safe_str(row[label_col])
+            response = _safe_str(row[resp_col])
+            if not label and not response:
+                n_skipped_rows += 1
+                continue
+
+            stays_dict[nda].append({"LIBELLE": label, "REPONSE": response})
+
+        except Exception as e:
+            n_skipped_rows += 1
             continue
 
-        stays_dict[nda].append({"LIBELLE": label, "REPONSE": response})
+    if n_skipped_rows:
+        print(f"  [Parse] {n_skipped_rows} lignes ignorées (NDA vide, valeurs nulles, erreurs)")
 
     # ── Résolution NIP via GT ─────────────────────────────────────
-    patients_tmp: Dict[str, List[str]] = defaultdict(list)  # nip → [nda]
-    skipped = 0
+    patients_tmp: Dict[str, List[str]] = defaultdict(list)
+    skipped_stays = 0
     for nda in stays_dict:
         nip = nda_to_nip.get(nda)
         if nip is None:
-            if nda_to_nip:  # GT fourni mais NDA absent → hors cohorte
-                skipped += 1
+            if nda_to_nip:
+                skipped_stays += 1
                 continue
             nip = "UNKNOWN"
         patients_tmp[nip].append(nda)
 
-    if skipped:
-        print(f"  [GT] {skipped} séjours ignorés (NDA absent du GT — hors cohorte)")
+    if skipped_stays:
+        print(f"  [GT] {skipped_stays} séjours ignorés (NDA absent du GT — hors cohorte)")
+
+    if not patients_tmp:
+        raise RuntimeError(
+            "Corpus vide après jointure GT. "
+            "Vérifiez que les NDA du parquet correspondent à ceux du GT CSV."
+        )
 
     # ── Construction corpus final ─────────────────────────────────
     corpus = []

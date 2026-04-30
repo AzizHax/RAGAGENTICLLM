@@ -279,8 +279,11 @@ def _load_gt(gt_path: str, gt_patient_agg: str = "any_positive") -> Optional[Dic
     if gt_ext == ".csv":
         # ── Lecture ──────────────────────────────────────────────
         rows = []
-        with open(gt_path, "r", encoding="utf-8") as f:
-            reader = _csv.DictReader(f)
+        with open(gt_path, "r", encoding="utf-8-sig") as f:
+            sample = f.read(4096)
+            dialect = _csv.Sniffer().sniff(sample, delimiters=",;\t|")
+            f.seek(0)
+            reader = _csv.DictReader(f, dialect=dialect)
             cols = [c.strip() for c in (reader.fieldnames or [])]
             col_map = {c.lower(): c for c in cols}
 

@@ -1,76 +1,28 @@
 {
   "patient_level": {
-    "accuracy": 0.78,
-    "precision": 0.8636,
-    "recall": 0.7037,
-    "f1": 0.7755,
-    "tp": 19,
-    "fp": 3,
-    "tn": 20,
-    "fn": 8,
+    "accuracy": 0.7,
+    "precision": 1.0,
+    "recall": 0.4,
+    "f1": 0.5714,
+    "tp": 2,
+    "fp": 0,
+    "tn": 5,
+    "fn": 3,
     "errors": [
       {
-        "id": "10002",
+        "id": "1087654",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "10003",
+        "id": "1248098",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "10009",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10010",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10017",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10019",
-        "pred": "RA+",
-        "true": "RA-",
-        "type": "FP"
-      },
-      {
-        "id": "10025",
-        "pred": "RA+",
-        "true": "RA-",
-        "type": "FP"
-      },
-      {
-        "id": "10032",
-        "pred": "RA+",
-        "true": "RA-",
-        "type": "FP"
-      },
-      {
-        "id": "10042",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10045",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "10047",
+        "id": "1581520",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
@@ -78,143 +30,59 @@
     ]
   },
   "stay_level": {
-    "accuracy": 0.8358,
-    "precision": 0.8667,
-    "recall": 0.5909,
-    "f1": 0.7027,
-    "tp": 26,
-    "fp": 4,
-    "tn": 86,
-    "fn": 18,
+    "accuracy": 0.619,
+    "precision": 1.0,
+    "recall": 0.2727,
+    "f1": 0.4286,
+    "tp": 3,
+    "fp": 0,
+    "tn": 10,
+    "fn": 8,
     "errors": [
       {
-        "id": "1000201",
+        "id": "7777627",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "1000300",
+        "id": "2507202",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "1000801",
+        "id": "9905557",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "1000803",
+        "id": "4346519",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "1000901",
+        "id": "4635493",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "1001001",
+        "id": "3554776",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "1001100",
+        "id": "4566682",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "1001105",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "1001302",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "1001700",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "1001701",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "1001900",
-        "pred": "RA+",
-        "true": "RA-",
-        "type": "FP"
-      },
-      {
-        "id": "1002301",
-        "pred": "RA+",
-        "true": "RA-",
-        "type": "FP"
-      },
-      {
-        "id": "1002303",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "1002802",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "1003402",
-        "pred": "RA+",
-        "true": "RA-",
-        "type": "FP"
-      },
-      {
-        "id": "1004202",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "1004203",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "1004303",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "1004500",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "1004600",
-        "pred": "RA+",
-        "true": "RA-",
-        "type": "FP"
-      },
-      {
-        "id": "1004700",
+        "id": "2391930",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
