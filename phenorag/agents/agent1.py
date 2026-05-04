@@ -181,11 +181,93 @@ class _Rx:
     POS = re.compile(r"positif|positive|\+", re.I)
     NEG = re.compile(r"n[eé]gatif|negative|\u2212", re.I)
 
+    # ── Valeurs numériques RF / anti-CCP (pour inférer polarity) ──
+    RF_VALUE  = re.compile(r"(\d+(?:[.,]\d+)?)\s*(?:UI|IU|U)/?\s*mL", re.I)
+    CCP_VALUE = re.compile(r"(\d+(?:[.,]\d+)?)\s*U/?\s*mL", re.I)
+    NORM_LT   = re.compile(r"N\s*<\s*(\d+(?:[.,]\d+)?)", re.I)
+
     # Joint patterns (for targeted search)
     JOINT_SMALL = re.compile(r"\bmcp\b|\bpip\b|\bmtp\b|\bpoignet|\bwrist", re.I)
     JOINT_ANY = re.compile(r"\barticul|\bjoint|\bsynovit|\bgonfle|\btumef", re.I)
     DURATION = re.compile(r"depuis\s+\d+\s*(semaines|mois|ans)|>\s*6\s*semaines|chronique|suivi\s+depuis", re.I)
     INFLAM_NEG = re.compile(r"bilan\s+(biologique\s+)?normal|pas\s+de\s+syndrome\s+inflammatoire|CRP\s+normal", re.I)
+
+
+def _infer_lab_polarity(test: str, snippet: str,
+                         rf_uln: float = 20.0,
+                         ccp_uln: float = 10.0):
+    """
+    Infère la polarity (et la valeur) d'un lab RF / anti-CCP depuis un snippet.
+
+    Stratégie en cascade :
+      1. Mots-clés "positif"/"négatif" → polarity directe
+      2. Valeur numérique avec unité → comparer au seuil
+         (configurable, ou via "N<X" trouvé dans le snippet)
+      3. Sinon : "unknown"
+
+    Returns: (polarity: str, value_str: Optional[str])
+    """
+    # 1. Mots-clés explicites
+    if _Rx.POS.search(snippet):
+        return "positive", None
+    if _Rx.NEG.search(snippet):
+        return "negative", None
+
+    # 2. Valeur numérique
+    test_l = test.lower()
+    if test_l == "rf":
+        m = _Rx.RF_VALUE.search(snippet)
+        threshold = rf_uln
+        unit = "UI/mL"
+    elif "ccp" in test_l or "acpa" in test_l:
+        m = _Rx.CCP_VALUE.search(snippet)
+        threshold = ccp_uln
+        unit = "U/mL"
+    else:
+        return "unknown", None
+
+    if not m:
+        return "unknown", None
+
+    try:
+        value = float(m.group(1).replace(",", "."))
+    except (ValueError, TypeError):
+        return "unknown", None
+
+    # Norme "N<X" prioritaire si présente
+    norm_match = _Rx.NORM_LT.search(snippet)
+    if norm_match:
+        try:
+            threshold = float(norm_match.group(1).replace(",", "."))
+        except (ValueError, TypeError):
+            pass
+
+    polarity = "positive" if value > threshold else "negative"
+    return polarity, f"{value:g} {unit}"
+
+
+def _postprocess_polarity(extracted: Dict) -> Dict:
+    """
+    Inférer polarity sur les labs RF/anti-CCP extraits par LLM avec
+    polarity=unknown alors qu'une valeur numérique est présente dans
+    le snippet.
+    """
+    for lab in extracted.get("labs", []) or []:
+        if not isinstance(lab, dict):
+            continue
+        pol = (lab.get("polarity") or "").lower()
+        test = (lab.get("test") or "").lower()
+        if pol != "unknown" or test not in ("rf", "anti-ccp", "ccp", "acpa"):
+            continue
+        ev = lab.get("evidence", {})
+        snippet = ev.get("snippet", "") if isinstance(ev, dict) else str(ev)
+        text = f"{snippet} {lab.get('value', '')}"
+        new_pol, new_value = _infer_lab_polarity(test, text)
+        if new_pol != "unknown":
+            lab["polarity"] = new_pol
+            if new_value and not lab.get("value"):
+                lab["value"] = new_value
+    return extracted
 
 
 def regex_extract(records: List[Dict], stay_id: str) -> Dict:
@@ -198,11 +280,17 @@ def regex_extract(records: List[Dict], stay_id: str) -> Dict:
         if _Rx.PR.search(comb):
             res["disease_mentions"].append({"entity": "polyarthrite rhumatoide", "status": "mentioned", "evidence": ev})
         if _Rx.RF.search(lib):
-            p = "positive" if _Rx.POS.search(rep) else "negative" if _Rx.NEG.search(rep) else "unknown"
-            res["labs"].append({"test": "RF", "polarity": p, "evidence": ev})
+            polarity, value = _infer_lab_polarity("RF", rep)
+            lab = {"test": "RF", "polarity": polarity, "evidence": ev}
+            if value:
+                lab["value"] = value
+            res["labs"].append(lab)
         if _Rx.CCP.search(lib):
-            p = "positive" if _Rx.POS.search(rep) else "negative" if _Rx.NEG.search(rep) else "unknown"
-            res["labs"].append({"test": "anti-CCP", "polarity": p, "evidence": ev})
+            polarity, value = _infer_lab_polarity("anti-CCP", rep)
+            lab = {"test": "anti-CCP", "polarity": polarity, "evidence": ev}
+            if value:
+                lab["value"] = value
+            res["labs"].append(lab)
         m = _Rx.CRP.search(rep)
         if m:
             v = float(m.group(1))
@@ -230,14 +318,16 @@ def regex_extract(records: List[Dict], stay_id: str) -> Dict:
 _DIM_REGEX_MAP = {
     "serology": {
         "patterns": [_Rx.RF, _Rx.CCP],
-        "extract": lambda lib, rep, ev: [
-            {"test": "RF",
-             "polarity": "positive" if _Rx.POS.search(rep) else "negative" if _Rx.NEG.search(rep) else "unknown",
-             "evidence": ev}
-        ] if _Rx.RF.search(f"{lib} {rep}") else (
-            [{"test": "anti-CCP",
-              "polarity": "positive" if _Rx.POS.search(rep) else "negative" if _Rx.NEG.search(rep) else "unknown",
-              "evidence": ev}]
+        "extract": lambda lib, rep, ev: (
+            (lambda pv: [{"test": "RF", "polarity": pv[0],
+                          **({"value": pv[1]} if pv[1] else {}),
+                          "evidence": ev}]
+            )(_infer_lab_polarity("RF", rep))
+            if _Rx.RF.search(f"{lib} {rep}") else
+            (lambda pv: [{"test": "anti-CCP", "polarity": pv[0],
+                          **({"value": pv[1]} if pv[1] else {}),
+                          "evidence": ev}]
+            )(_infer_lab_polarity("anti-CCP", rep))
             if _Rx.CCP.search(f"{lib} {rep}") else []
         ),
         "target_key": "labs",
@@ -286,11 +376,17 @@ def targeted_regex_search(all_records: List[Dict], stay_id: str,
                     # Dimension-specific extraction
                     if dim == "serology":
                         if _Rx.RF.search(combined):
-                            pol = "positive" if _Rx.POS.search(rep) else "negative" if _Rx.NEG.search(rep) else "unknown"
-                            new_facts["labs"].append({"test": "RF", "polarity": pol, "evidence": ev})
+                            pol, val = _infer_lab_polarity("RF", rep)
+                            lab_entry = {"test": "RF", "polarity": pol, "evidence": ev}
+                            if val:
+                                lab_entry["value"] = val
+                            new_facts["labs"].append(lab_entry)
                         if _Rx.CCP.search(combined):
-                            pol = "positive" if _Rx.POS.search(rep) else "negative" if _Rx.NEG.search(rep) else "unknown"
-                            new_facts["labs"].append({"test": "anti-CCP", "polarity": pol, "evidence": ev})
+                            pol, val = _infer_lab_polarity("anti-CCP", rep)
+                            lab_entry = {"test": "anti-CCP", "polarity": pol, "evidence": ev}
+                            if val:
+                                lab_entry["value"] = val
+                            new_facts["labs"].append(lab_entry)
 
                     elif dim == "acute_phase":
                         m = _Rx.CRP.search(rep)
@@ -394,6 +490,7 @@ class Agent1Pipeline:
 
         if len(filtered) <= SMART_SKIP_THRESHOLD and self.cfg.use_regex_fallback:
             extracted = regex_extract(filtered, stay_id)
+            extracted = _postprocess_polarity(extracted)
             if any(extracted[k] for k in ("disease_mentions", "labs", "drugs")):
                 tm["total_ms"] = (time.time() - t0_total) * 1000
                 return self._result(stay_id, patient_id, visit_date, visit_num,
@@ -422,6 +519,9 @@ class Agent1Pipeline:
             extracted = regex_extract(filtered, stay_id) if self.cfg.use_regex_fallback \
                 else {"disease_mentions": [], "labs": [], "drugs": []}
             mode = "regex_fallback" if self.cfg.use_regex_fallback else "llm_failed"
+
+        # ── Post-processing polarity (RF/anti-CCP unknown → inférer si valeur) ──
+        extracted = _postprocess_polarity(extracted)
 
         tm["total_ms"] = (time.time() - t0_total) * 1000
         return self._result(stay_id, patient_id, visit_date, visit_num,

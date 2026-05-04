@@ -3,46 +3,46 @@
     "patient_id": "1087654",
     "n_stays": 1,
     "stay_labels": [
-      "RA-"
+      "RA+"
     ],
     "stay_confidences": [
-      0.95
+      0.501
     ],
-    "n_ra_related_stays": 0,
-    "n_ra_positive_stays": 0,
-    "n_ra_negative_stays": 1,
+    "n_ra_related_stays": 1,
+    "n_ra_positive_stays": 1,
+    "n_ra_negative_stays": 0,
     "aggregation_strategy": "any_positive",
-    "aggregation_label": "RA-",
-    "aggregation_confidence": 0.95,
-    "aggregation_reasoning": "ANY_POSITIVE: 0/1 RA+",
-    "final_label": "RA-",
-    "final_confidence": 0.95,
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.501,
+    "aggregation_reasoning": "ANY_POSITIVE: 1/1 RA+",
+    "final_label": "RA+",
+    "final_confidence": 0.501,
     "decision_source": "aggregation",
     "guardrails_passed": true,
     "guardrails_warnings": [],
     "reasoning_trace": [
-      "[Stays] 1: 0 RA+, 1 RA-",
-      "[Agg] ANY_POSITIVE: 0/1 RA+",
-      "[Bayesian] P(PR+)=0.050, class=PR_ABSENT, trend=stable",
-      "[Bayesian] PR_ABSENT:0.95, PR_LATENT:0.03, PR_REMISSION:0.01, PR_MODERATE:0.01, PR_SEVERE:0.01",
-      "[Final] RA- (conf: 0.95, src: aggregation)"
+      "[Stays] 1: 1 RA+, 0 RA-",
+      "[Agg] ANY_POSITIVE: 1/1 RA+",
+      "[Bayesian] P(PR+)=0.499, class=PR_ABSENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.50, PR_LATENT:0.49, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 0.50, src: aggregation)"
     ],
     "stay_details": [
       {
         "stay_id": "7777627",
-        "label": "RA-",
-        "confidence": 0.95,
-        "acr_score": 0,
-        "is_ra_related": false,
+        "label": "RA+",
+        "confidence": 0.501,
+        "acr_score": 3,
+        "is_ra_related": true,
         "class_probabilities": {
-          "PR_ABSENT": 0.95,
-          "PR_LATENT": 0.03,
-          "PR_REMISSION": 0.01,
-          "PR_MODERATE": 0.005,
-          "PR_SEVERE": 0.005
+          "PR_ABSENT": 0.5009648709137574,
+          "PR_LATENT": 0.4922604184531294,
+          "PR_REMISSION": 0.0048326657450108645,
+          "PR_MODERATE": 0.0019143460825585842,
+          "PR_SEVERE": 2.769880554368341e-05
         },
         "predicted_class": "PR_ABSENT",
-        "pr_positive_probability": 0.05
+        "pr_positive_probability": 0.499
       }
     ],
     "llm_critic_used": false,
@@ -51,14 +51,14 @@
     "llm_critic_reasoning": null,
     "llm_override_applied": false,
     "patient_class_probabilities": {
-      "PR_ABSENT": 0.95,
-      "PR_LATENT": 0.03,
-      "PR_REMISSION": 0.01,
-      "PR_MODERATE": 0.005,
-      "PR_SEVERE": 0.005
+      "PR_ABSENT": 0.501,
+      "PR_LATENT": 0.4923,
+      "PR_REMISSION": 0.0048,
+      "PR_MODERATE": 0.0019,
+      "PR_SEVERE": 0.0
     },
     "patient_predicted_class": "PR_ABSENT",
-    "patient_pr_positive_probability": 0.05,
+    "patient_pr_positive_probability": 0.499,
     "patient_temporal_trend": "stable"
   },
   {
@@ -171,26 +171,26 @@
     ],
     "stay_confidences": [
       0.95,
-      0.6041
+      0.5932999999999999
     ],
     "n_ra_related_stays": 1,
     "n_ra_positive_stays": 0,
     "n_ra_negative_stays": 2,
     "aggregation_strategy": "any_positive",
     "aggregation_label": "RA-",
-    "aggregation_confidence": 0.77705,
+    "aggregation_confidence": 0.77165,
     "aggregation_reasoning": "ANY_POSITIVE: 0/2 RA+",
     "final_label": "RA-",
-    "final_confidence": 0.8734999999999999,
+    "final_confidence": 0.9322,
     "decision_source": "aggregation",
     "guardrails_passed": true,
     "guardrails_warnings": [],
     "reasoning_trace": [
       "[Stays] 2: 0 RA+, 2 RA-",
       "[Agg] ANY_POSITIVE: 0/2 RA+",
-      "[Bayesian] P(PR+)=0.127, class=PR_ABSENT, trend=stable",
-      "[Bayesian] PR_ABSENT:0.87, PR_LATENT:0.12, PR_REMISSION:0.01, PR_MODERATE:0.00, PR_SEVERE:0.00",
-      "[Final] RA- (conf: 0.87, src: aggregation)"
+      "[Bayesian] P(PR+)=0.068, class=PR_ABSENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.93, PR_LATENT:0.07, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA- (conf: 0.93, src: aggregation)"
     ],
     "stay_details": [
       {
@@ -212,86 +212,6 @@
       {
         "stay_id": "5167985",
         "label": "RA-",
-        "confidence": 0.6041,
-        "acr_score": 0,
-        "is_ra_related": true,
-        "class_probabilities": {
-          "PR_ABSENT": 0.3959472784217364,
-          "PR_LATENT": 0.4964663998611109,
-          "PR_REMISSION": 0.08422197861104237,
-          "PR_MODERATE": 0.023168432017773126,
-          "PR_SEVERE": 0.00019591108833696567
-        },
-        "predicted_class": "PR_LATENT",
-        "pr_positive_probability": 0.6041
-      }
-    ],
-    "llm_critic_used": false,
-    "llm_critic_recommendation": null,
-    "llm_critic_confidence": null,
-    "llm_critic_reasoning": null,
-    "llm_override_applied": false,
-    "patient_class_probabilities": {
-      "PR_ABSENT": 0.8735,
-      "PR_LATENT": 0.1181,
-      "PR_REMISSION": 0.0075,
-      "PR_MODERATE": 0.0008,
-      "PR_SEVERE": 0.0
-    },
-    "patient_predicted_class": "PR_ABSENT",
-    "patient_pr_positive_probability": 0.1265,
-    "patient_temporal_trend": "stable"
-  },
-  {
-    "patient_id": "1234568",
-    "n_stays": 2,
-    "stay_labels": [
-      "RA-",
-      "RA-"
-    ],
-    "stay_confidences": [
-      0.5932999999999999,
-      0.5932999999999999
-    ],
-    "n_ra_related_stays": 2,
-    "n_ra_positive_stays": 0,
-    "n_ra_negative_stays": 2,
-    "aggregation_strategy": "any_positive",
-    "aggregation_label": "RA-",
-    "aggregation_confidence": 0.5932999999999999,
-    "aggregation_reasoning": "ANY_POSITIVE: 0/2 RA+",
-    "final_label": "RA-",
-    "final_confidence": 0.5297,
-    "decision_source": "aggregation",
-    "guardrails_passed": true,
-    "guardrails_warnings": [],
-    "reasoning_trace": [
-      "[Stays] 2: 0 RA+, 2 RA-",
-      "[Agg] ANY_POSITIVE: 0/2 RA+",
-      "[Bayesian] P(PR+)=0.530, class=PR_LATENT, trend=stable",
-      "[Bayesian] PR_ABSENT:0.47, PR_LATENT:0.53, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
-      "[Final] RA- (conf: 0.53, src: aggregation)"
-    ],
-    "stay_details": [
-      {
-        "stay_id": "2452545",
-        "label": "RA-",
-        "confidence": 0.5932999999999999,
-        "acr_score": 0,
-        "is_ra_related": true,
-        "class_probabilities": {
-          "PR_ABSENT": 0.5933196045334074,
-          "PR_LATENT": 0.39677100481239796,
-          "PR_REMISSION": 0.008413670873598586,
-          "PR_MODERATE": 0.0014878912710034654,
-          "PR_SEVERE": 7.828509592476959e-06
-        },
-        "predicted_class": "PR_ABSENT",
-        "pr_positive_probability": 0.4067
-      },
-      {
-        "stay_id": "3235470",
-        "label": "RA-",
         "confidence": 0.5932999999999999,
         "acr_score": 1,
         "is_ra_related": true,
@@ -312,14 +232,94 @@
     "llm_critic_reasoning": null,
     "llm_override_applied": false,
     "patient_class_probabilities": {
-      "PR_ABSENT": 0.4703,
-      "PR_LATENT": 0.5293,
-      "PR_REMISSION": 0.0003,
+      "PR_ABSENT": 0.9322,
+      "PR_LATENT": 0.0672,
+      "PR_REMISSION": 0.0005,
       "PR_MODERATE": 0.0,
       "PR_SEVERE": 0.0
     },
+    "patient_predicted_class": "PR_ABSENT",
+    "patient_pr_positive_probability": 0.0678,
+    "patient_temporal_trend": "stable"
+  },
+  {
+    "patient_id": "1234568",
+    "n_stays": 2,
+    "stay_labels": [
+      "RA+",
+      "RA-"
+    ],
+    "stay_confidences": [
+      0.5932999999999999,
+      0.6041
+    ],
+    "n_ra_related_stays": 2,
+    "n_ra_positive_stays": 1,
+    "n_ra_negative_stays": 1,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.5932999999999999,
+    "aggregation_reasoning": "ANY_POSITIVE: 1/2 RA+",
+    "final_label": "RA+",
+    "final_confidence": 0.6797,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 2: 1 RA+, 1 RA-",
+      "[Agg] ANY_POSITIVE: 1/2 RA+",
+      "[Bayesian] P(PR+)=0.680, class=PR_LATENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.32, PR_LATENT:0.68, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 0.68, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "2452545",
+        "label": "RA+",
+        "confidence": 0.5932999999999999,
+        "acr_score": 9,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.5933196045334074,
+          "PR_LATENT": 0.39677100481239796,
+          "PR_REMISSION": 0.008413670873598586,
+          "PR_MODERATE": 0.0014878912710034654,
+          "PR_SEVERE": 7.828509592476959e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.4067
+      },
+      {
+        "stay_id": "3235470",
+        "label": "RA-",
+        "confidence": 0.6041,
+        "acr_score": 0,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.3959472784217364,
+          "PR_LATENT": 0.4964663998611109,
+          "PR_REMISSION": 0.08422197861104237,
+          "PR_MODERATE": 0.023168432017773126,
+          "PR_SEVERE": 0.00019591108833696567
+        },
+        "predicted_class": "PR_LATENT",
+        "pr_positive_probability": 0.6041
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.3203,
+      "PR_LATENT": 0.676,
+      "PR_REMISSION": 0.0036,
+      "PR_MODERATE": 0.0002,
+      "PR_SEVERE": 0.0
+    },
     "patient_predicted_class": "PR_LATENT",
-    "patient_pr_positive_probability": 0.5297,
+    "patient_pr_positive_probability": 0.6797,
     "patient_temporal_trend": "stable"
   },
   {
@@ -393,34 +393,31 @@
     "stay_labels": [
       "RA-",
       "RA-",
-      "RA-"
+      "RA+"
     ],
     "stay_confidences": [
       0.9633,
-      0.9,
-      0.9633
+      0.7952,
+      0.9905
     ],
     "n_ra_related_stays": 3,
-    "n_ra_positive_stays": 0,
-    "n_ra_negative_stays": 3,
+    "n_ra_positive_stays": 1,
+    "n_ra_negative_stays": 2,
     "aggregation_strategy": "any_positive",
-    "aggregation_label": "RA-",
-    "aggregation_confidence": 0.9422,
-    "aggregation_reasoning": "ANY_POSITIVE: 0/3 RA+",
-    "final_label": "RA-",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.9905,
+    "aggregation_reasoning": "ANY_POSITIVE: 1/3 RA+",
+    "final_label": "RA+",
     "final_confidence": 0.9999,
     "decision_source": "aggregation",
-    "guardrails_passed": false,
-    "guardrails_warnings": [
-      "Temporal contradiction: crp both + and - across stays"
-    ],
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
     "reasoning_trace": [
-      "[Stays] 3: 0 RA+, 3 RA-",
-      "[Agg] ANY_POSITIVE: 0/3 RA+",
-      "[Guardrail] Temporal contradiction: crp both + and - across stays",
-      "[Bayesian] P(PR+)=1.000, class=PR_LATENT, trend=stable",
+      "[Stays] 3: 1 RA+, 2 RA-",
+      "[Agg] ANY_POSITIVE: 1/3 RA+",
+      "[Bayesian] P(PR+)=1.000, class=PR_LATENT, trend=worsening",
       "[Bayesian] PR_ABSENT:0.00, PR_LATENT:1.00, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
-      "[Final] RA- (conf: 1.00, src: aggregation)"
+      "[Final] RA+ (conf: 1.00, src: aggregation)"
     ],
     "stay_details": [
       {
@@ -442,6 +439,222 @@
       {
         "stay_id": "7426807",
         "label": "RA-",
+        "confidence": 0.7952,
+        "acr_score": 1,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.2048267353935225,
+          "PR_LATENT": 0.7761855230200948,
+          "PR_REMISSION": 0.0070539819653923945,
+          "PR_MODERATE": 0.011642782864073766,
+          "PR_SEVERE": 0.0002909767569165612
+        },
+        "predicted_class": "PR_LATENT",
+        "pr_positive_probability": 0.7952
+      },
+      {
+        "stay_id": "9905557",
+        "label": "RA+",
+        "confidence": 0.9905,
+        "acr_score": 4,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.009507150513303381,
+          "PR_LATENT": 0.4221925362687481,
+          "PR_REMISSION": 0.027284551696111024,
+          "PR_MODERATE": 0.490368812434192,
+          "PR_SEVERE": 0.05064694908764544
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 0.9905
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.0001,
+      "PR_LATENT": 0.9975,
+      "PR_REMISSION": 0.0,
+      "PR_MODERATE": 0.0024,
+      "PR_SEVERE": 0.0
+    },
+    "patient_predicted_class": "PR_LATENT",
+    "patient_pr_positive_probability": 0.9999,
+    "patient_temporal_trend": "worsening"
+  },
+  {
+    "patient_id": "1345678",
+    "n_stays": 5,
+    "stay_labels": [
+      "RA+",
+      "RA+",
+      "RA+",
+      "RA+",
+      "RA+"
+    ],
+    "stay_confidences": [
+      0.5001,
+      0.8403,
+      0.6267,
+      0.9999,
+      0.9999
+    ],
+    "n_ra_related_stays": 5,
+    "n_ra_positive_stays": 5,
+    "n_ra_negative_stays": 0,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.9999,
+    "aggregation_reasoning": "ANY_POSITIVE: 5/5 RA+",
+    "final_label": "RA+",
+    "final_confidence": 1.0,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 5: 5 RA+, 0 RA-",
+      "[Agg] ANY_POSITIVE: 5/5 RA+",
+      "[Bayesian] P(PR+)=1.000, class=PR_LATENT, trend=worsening",
+      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.83, PR_REMISSION:0.16, PR_MODERATE:0.01, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 1.00, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "4346519",
+        "label": "RA+",
+        "confidence": 0.5001,
+        "acr_score": 6,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.4999325833191709,
+          "PR_LATENT": 0.48715235175466487,
+          "PR_REMISSION": 0.009838323444920317,
+          "PR_MODERATE": 0.003044702204111609,
+          "PR_SEVERE": 3.2039277132411565e-05
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.5001
+      },
+      {
+        "stay_id": "4635493",
+        "label": "RA+",
+        "confidence": 0.8403,
+        "acr_score": 1,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.1597088023438871,
+          "PR_LATENT": 0.37271777971070963,
+          "PR_REMISSION": 0.4229896930073959,
+          "PR_MODERATE": 0.04380584295515319,
+          "PR_SEVERE": 0.0007778819828542912
+        },
+        "predicted_class": "PR_REMISSION",
+        "pr_positive_probability": 0.8403
+      },
+      {
+        "stay_id": "7274339",
+        "label": "RA+",
+        "confidence": 0.6267,
+        "acr_score": 2,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.6267420630489643,
+          "PR_LATENT": 0.3695113118770937,
+          "PR_REMISSION": 0.0029020812440577006,
+          "PR_MODERATE": 0.0008382432586923758,
+          "PR_SEVERE": 6.300571191981916e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.3733
+      },
+      {
+        "stay_id": "8073933",
+        "label": "RA+",
+        "confidence": 0.9999,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.00014903598848050854,
+          "PR_LATENT": 0.02874265465929335,
+          "PR_REMISSION": 0.35228999241150377,
+          "PR_MODERATE": 0.5675290385212006,
+          "PR_SEVERE": 0.05128927841952179
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 0.9999
+      },
+      {
+        "stay_id": "9208671",
+        "label": "RA+",
+        "confidence": 0.9999,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.00014903598848050854,
+          "PR_LATENT": 0.02874265465929335,
+          "PR_REMISSION": 0.35228999241150377,
+          "PR_MODERATE": 0.5675290385212006,
+          "PR_SEVERE": 0.05128927841952179
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 0.9999
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.0,
+      "PR_LATENT": 0.832,
+      "PR_REMISSION": 0.1626,
+      "PR_MODERATE": 0.0054,
+      "PR_SEVERE": 0.0
+    },
+    "patient_predicted_class": "PR_LATENT",
+    "patient_pr_positive_probability": 1.0,
+    "patient_temporal_trend": "worsening"
+  },
+  {
+    "patient_id": "1456789",
+    "n_stays": 3,
+    "stay_labels": [
+      "RA-",
+      "RA+",
+      "RA+"
+    ],
+    "stay_confidences": [
+      0.9,
+      0.501,
+      1.0
+    ],
+    "n_ra_related_stays": 3,
+    "n_ra_positive_stays": 2,
+    "n_ra_negative_stays": 1,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 1.0,
+    "aggregation_reasoning": "ANY_POSITIVE: 2/3 RA+",
+    "final_label": "RA+",
+    "final_confidence": 0.9999,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 3: 2 RA+, 1 RA-",
+      "[Agg] ANY_POSITIVE: 2/3 RA+",
+      "[Bayesian] P(PR+)=1.000, class=PR_LATENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.94, PR_REMISSION:0.04, PR_MODERATE:0.02, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 1.00, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "3554776",
+        "label": "RA-",
         "confidence": 0.9,
         "acr_score": 1,
         "is_ra_related": true,
@@ -456,236 +669,20 @@
         "pr_positive_probability": 0.9
       },
       {
-        "stay_id": "9905557",
-        "label": "RA-",
-        "confidence": 0.9633,
-        "acr_score": 4,
-        "is_ra_related": true,
-        "class_probabilities": {
-          "PR_ABSENT": 0.03672673255605945,
-          "PR_LATENT": 0.8698436627923661,
-          "PR_REMISSION": 0.007026798310002974,
-          "PR_MODERATE": 0.08118540859343243,
-          "PR_SEVERE": 0.0052173977481389956
-        },
-        "predicted_class": "PR_LATENT",
-        "pr_positive_probability": 0.9633
-      }
-    ],
-    "llm_critic_used": false,
-    "llm_critic_recommendation": null,
-    "llm_critic_confidence": null,
-    "llm_critic_reasoning": null,
-    "llm_override_applied": false,
-    "patient_class_probabilities": {
-      "PR_ABSENT": 0.0001,
-      "PR_LATENT": 0.998,
-      "PR_REMISSION": 0.0,
-      "PR_MODERATE": 0.0018,
-      "PR_SEVERE": 0.0
-    },
-    "patient_predicted_class": "PR_LATENT",
-    "patient_pr_positive_probability": 0.9999,
-    "patient_temporal_trend": "stable"
-  },
-  {
-    "patient_id": "1345678",
-    "n_stays": 5,
-    "stay_labels": [
-      "RA-",
-      "RA-",
-      "RA-",
-      "RA+",
-      "RA+"
-    ],
-    "stay_confidences": [
-      0.5001,
-      0.95,
-      0.95,
-      1.0,
-      0.9977
-    ],
-    "n_ra_related_stays": 3,
-    "n_ra_positive_stays": 2,
-    "n_ra_negative_stays": 3,
-    "aggregation_strategy": "any_positive",
-    "aggregation_label": "RA+",
-    "aggregation_confidence": 1.0,
-    "aggregation_reasoning": "ANY_POSITIVE: 2/5 RA+",
-    "final_label": "RA+",
-    "final_confidence": 0.9999,
-    "decision_source": "aggregation",
-    "guardrails_passed": true,
-    "guardrails_warnings": [],
-    "reasoning_trace": [
-      "[Stays] 5: 2 RA+, 3 RA-",
-      "[Agg] ANY_POSITIVE: 2/5 RA+",
-      "[Bayesian] P(PR+)=1.000, class=PR_LATENT, trend=worsening",
-      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.74, PR_REMISSION:0.22, PR_MODERATE:0.05, PR_SEVERE:0.00",
-      "[Final] RA+ (conf: 1.00, src: aggregation)"
-    ],
-    "stay_details": [
-      {
-        "stay_id": "4346519",
-        "label": "RA-",
-        "confidence": 0.5001,
-        "acr_score": 4,
-        "is_ra_related": true,
-        "class_probabilities": {
-          "PR_ABSENT": 0.4999325833191709,
-          "PR_LATENT": 0.48715235175466487,
-          "PR_REMISSION": 0.009838323444920317,
-          "PR_MODERATE": 0.003044702204111609,
-          "PR_SEVERE": 3.2039277132411565e-05
-        },
-        "predicted_class": "PR_ABSENT",
-        "pr_positive_probability": 0.5001
-      },
-      {
-        "stay_id": "4635493",
-        "label": "RA-",
-        "confidence": 0.95,
-        "acr_score": 0,
-        "is_ra_related": false,
-        "class_probabilities": {
-          "PR_ABSENT": 0.95,
-          "PR_LATENT": 0.03,
-          "PR_REMISSION": 0.01,
-          "PR_MODERATE": 0.005,
-          "PR_SEVERE": 0.005
-        },
-        "predicted_class": "PR_ABSENT",
-        "pr_positive_probability": 0.05
-      },
-      {
-        "stay_id": "7274339",
-        "label": "RA-",
-        "confidence": 0.95,
-        "acr_score": 0,
-        "is_ra_related": false,
-        "class_probabilities": {
-          "PR_ABSENT": 0.95,
-          "PR_LATENT": 0.03,
-          "PR_REMISSION": 0.01,
-          "PR_MODERATE": 0.005,
-          "PR_SEVERE": 0.005
-        },
-        "predicted_class": "PR_ABSENT",
-        "pr_positive_probability": 0.05
-      },
-      {
-        "stay_id": "8073933",
-        "label": "RA+",
-        "confidence": 1.0,
-        "acr_score": 5,
-        "is_ra_related": true,
-        "class_probabilities": {
-          "PR_ABSENT": 4.562906572134425e-06,
-          "PR_LATENT": 0.010057018429882495,
-          "PR_REMISSION": 0.1797626567171459,
-          "PR_MODERATE": 0.6950219187189877,
-          "PR_SEVERE": 0.11515384322741179
-        },
-        "predicted_class": "PR_MODERATE",
-        "pr_positive_probability": 1.0
-      },
-      {
-        "stay_id": "9208671",
-        "label": "RA+",
-        "confidence": 0.9977,
-        "acr_score": 3,
-        "is_ra_related": true,
-        "class_probabilities": {
-          "PR_ABSENT": 0.0023051018512083056,
-          "PR_LATENT": 0.23709618909880398,
-          "PR_REMISSION": 0.3632520017338264,
-          "PR_MODERATE": 0.3761926200986637,
-          "PR_SEVERE": 0.021154087217497602
-        },
-        "predicted_class": "PR_MODERATE",
-        "pr_positive_probability": 0.9977
-      }
-    ],
-    "llm_critic_used": false,
-    "llm_critic_recommendation": null,
-    "llm_critic_confidence": null,
-    "llm_critic_reasoning": null,
-    "llm_override_applied": false,
-    "patient_class_probabilities": {
-      "PR_ABSENT": 0.0001,
-      "PR_LATENT": 0.7354,
-      "PR_REMISSION": 0.2151,
-      "PR_MODERATE": 0.0492,
-      "PR_SEVERE": 0.0002
-    },
-    "patient_predicted_class": "PR_LATENT",
-    "patient_pr_positive_probability": 0.9999,
-    "patient_temporal_trend": "worsening"
-  },
-  {
-    "patient_id": "1456789",
-    "n_stays": 3,
-    "stay_labels": [
-      "RA-",
-      "RA-",
-      "RA+"
-    ],
-    "stay_confidences": [
-      0.7952,
-      0.95,
-      1.0
-    ],
-    "n_ra_related_stays": 2,
-    "n_ra_positive_stays": 1,
-    "n_ra_negative_stays": 2,
-    "aggregation_strategy": "any_positive",
-    "aggregation_label": "RA+",
-    "aggregation_confidence": 1.0,
-    "aggregation_reasoning": "ANY_POSITIVE: 1/3 RA+",
-    "final_label": "RA+",
-    "final_confidence": 0.9996,
-    "decision_source": "aggregation",
-    "guardrails_passed": true,
-    "guardrails_warnings": [],
-    "reasoning_trace": [
-      "[Stays] 3: 1 RA+, 2 RA-",
-      "[Agg] ANY_POSITIVE: 1/3 RA+",
-      "[Bayesian] P(PR+)=1.000, class=PR_REMISSION, trend=worsening",
-      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.30, PR_REMISSION:0.44, PR_MODERATE:0.25, PR_SEVERE:0.01",
-      "[Final] RA+ (conf: 1.00, src: aggregation)"
-    ],
-    "stay_details": [
-      {
-        "stay_id": "3554776",
-        "label": "RA-",
-        "confidence": 0.7952,
-        "acr_score": 3,
-        "is_ra_related": true,
-        "class_probabilities": {
-          "PR_ABSENT": 0.2048267353935225,
-          "PR_LATENT": 0.7761855230200948,
-          "PR_REMISSION": 0.0070539819653923945,
-          "PR_MODERATE": 0.011642782864073766,
-          "PR_SEVERE": 0.0002909767569165612
-        },
-        "predicted_class": "PR_LATENT",
-        "pr_positive_probability": 0.7952
-      },
-      {
         "stay_id": "4566682",
-        "label": "RA-",
-        "confidence": 0.95,
-        "acr_score": 0,
-        "is_ra_related": false,
+        "label": "RA+",
+        "confidence": 0.501,
+        "acr_score": 4,
+        "is_ra_related": true,
         "class_probabilities": {
-          "PR_ABSENT": 0.95,
-          "PR_LATENT": 0.03,
-          "PR_REMISSION": 0.01,
-          "PR_MODERATE": 0.005,
-          "PR_SEVERE": 0.005
+          "PR_ABSENT": 0.5009648709137574,
+          "PR_LATENT": 0.4922604184531294,
+          "PR_REMISSION": 0.0048326657450108645,
+          "PR_MODERATE": 0.0019143460825585842,
+          "PR_SEVERE": 2.769880554368341e-05
         },
         "predicted_class": "PR_ABSENT",
-        "pr_positive_probability": 0.05
+        "pr_positive_probability": 0.499
       },
       {
         "stay_id": "7511436",
@@ -694,13 +691,13 @@
         "acr_score": 3,
         "is_ra_related": true,
         "class_probabilities": {
-          "PR_ABSENT": 2.095841363501275e-06,
-          "PR_LATENT": 0.002200633393995724,
-          "PR_REMISSION": 0.38840393359169406,
-          "PR_MODERATE": 0.45624509467455254,
-          "PR_SEVERE": 0.1531482424983942
+          "PR_ABSENT": 4.133265050493423e-05,
+          "PR_LATENT": 0.02314628396937898,
+          "PR_REMISSION": 0.5106545559228907,
+          "PR_MODERATE": 0.385617090310818,
+          "PR_SEVERE": 0.08054073714640746
         },
-        "predicted_class": "PR_MODERATE",
+        "predicted_class": "PR_REMISSION",
         "pr_positive_probability": 1.0
       }
     ],
@@ -710,47 +707,47 @@
     "llm_critic_reasoning": null,
     "llm_override_applied": false,
     "patient_class_probabilities": {
-      "PR_ABSENT": 0.0004,
-      "PR_LATENT": 0.2987,
-      "PR_REMISSION": 0.4355,
-      "PR_MODERATE": 0.2515,
-      "PR_SEVERE": 0.0139
+      "PR_ABSENT": 0.0001,
+      "PR_LATENT": 0.9443,
+      "PR_REMISSION": 0.0389,
+      "PR_MODERATE": 0.0167,
+      "PR_SEVERE": 0.0
     },
-    "patient_predicted_class": "PR_REMISSION",
-    "patient_pr_positive_probability": 0.9996,
-    "patient_temporal_trend": "worsening"
+    "patient_predicted_class": "PR_LATENT",
+    "patient_pr_positive_probability": 0.9999,
+    "patient_temporal_trend": "stable"
   },
   {
     "patient_id": "1580246",
     "n_stays": 3,
     "stay_labels": [
       "RA-",
-      "RA-",
+      "RA+",
       "RA-"
     ],
     "stay_confidences": [
       0.95,
-      0.95,
-      0.9
+      0.6267,
+      0.7952
     ],
-    "n_ra_related_stays": 1,
-    "n_ra_positive_stays": 0,
-    "n_ra_negative_stays": 3,
+    "n_ra_related_stays": 2,
+    "n_ra_positive_stays": 1,
+    "n_ra_negative_stays": 2,
     "aggregation_strategy": "any_positive",
-    "aggregation_label": "RA-",
-    "aggregation_confidence": 0.9333333333333332,
-    "aggregation_reasoning": "ANY_POSITIVE: 0/3 RA+",
-    "final_label": "RA-",
-    "final_confidence": 0.9049,
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.6267,
+    "aggregation_reasoning": "ANY_POSITIVE: 1/3 RA+",
+    "final_label": "RA+",
+    "final_confidence": 0.5658000000000001,
     "decision_source": "aggregation",
     "guardrails_passed": true,
     "guardrails_warnings": [],
     "reasoning_trace": [
-      "[Stays] 3: 0 RA+, 3 RA-",
-      "[Agg] ANY_POSITIVE: 0/3 RA+",
-      "[Bayesian] P(PR+)=0.095, class=PR_ABSENT, trend=stable",
-      "[Bayesian] PR_ABSENT:0.90, PR_LATENT:0.09, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
-      "[Final] RA- (conf: 0.90, src: aggregation)"
+      "[Stays] 3: 1 RA+, 2 RA-",
+      "[Agg] ANY_POSITIVE: 1/3 RA+",
+      "[Bayesian] P(PR+)=0.434, class=PR_ABSENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.57, PR_LATENT:0.43, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 0.57, src: aggregation)"
     ],
     "stay_details": [
       {
@@ -771,6 +768,168 @@
       },
       {
         "stay_id": "6684233",
+        "label": "RA+",
+        "confidence": 0.6267,
+        "acr_score": 2,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.6267420630489643,
+          "PR_LATENT": 0.3695113118770937,
+          "PR_REMISSION": 0.0029020812440577006,
+          "PR_MODERATE": 0.0008382432586923758,
+          "PR_SEVERE": 6.300571191981916e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.3733
+      },
+      {
+        "stay_id": "8742404",
+        "label": "RA-",
+        "confidence": 0.7952,
+        "acr_score": 1,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.2048267353935225,
+          "PR_LATENT": 0.7761855230200948,
+          "PR_REMISSION": 0.0070539819653923945,
+          "PR_MODERATE": 0.011642782864073766,
+          "PR_SEVERE": 0.0002909767569165612
+        },
+        "predicted_class": "PR_LATENT",
+        "pr_positive_probability": 0.7952
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.5658,
+      "PR_LATENT": 0.4342,
+      "PR_REMISSION": 0.0,
+      "PR_MODERATE": 0.0,
+      "PR_SEVERE": 0.0
+    },
+    "patient_predicted_class": "PR_ABSENT",
+    "patient_pr_positive_probability": 0.4342,
+    "patient_temporal_trend": "stable"
+  },
+  {
+    "patient_id": "1581520",
+    "n_stays": 1,
+    "stay_labels": [
+      "RA-"
+    ],
+    "stay_confidences": [
+      0.7647
+    ],
+    "n_ra_related_stays": 1,
+    "n_ra_positive_stays": 0,
+    "n_ra_negative_stays": 1,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA-",
+    "aggregation_confidence": 0.7647,
+    "aggregation_reasoning": "ANY_POSITIVE: 0/1 RA+",
+    "final_label": "RA-",
+    "final_confidence": 0.7647,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 1: 0 RA+, 1 RA-",
+      "[Agg] ANY_POSITIVE: 0/1 RA+",
+      "[Bayesian] P(PR+)=0.765, class=PR_LATENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.24, PR_LATENT:0.73, PR_REMISSION:0.01, PR_MODERATE:0.02, PR_SEVERE:0.00",
+      "[Final] RA- (conf: 0.76, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "2391930",
+        "label": "RA-",
+        "confidence": 0.7647,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.2352858002086173,
+          "PR_LATENT": 0.7278443637756508,
+          "PR_REMISSION": 0.01143274052254574,
+          "PR_MODERATE": 0.02476692629441431,
+          "PR_SEVERE": 0.0006701691987719805
+        },
+        "predicted_class": "PR_LATENT",
+        "pr_positive_probability": 0.7647
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.2353,
+      "PR_LATENT": 0.7278,
+      "PR_REMISSION": 0.0114,
+      "PR_MODERATE": 0.0248,
+      "PR_SEVERE": 0.0007
+    },
+    "patient_predicted_class": "PR_LATENT",
+    "patient_pr_positive_probability": 0.7647,
+    "patient_temporal_trend": "stable"
+  },
+  {
+    "patient_id": "1581594",
+    "n_stays": 4,
+    "stay_labels": [
+      "RA+",
+      "RA-",
+      "RA+",
+      "RA+"
+    ],
+    "stay_confidences": [
+      0.6267,
+      0.95,
+      0.501,
+      0.9213
+    ],
+    "n_ra_related_stays": 3,
+    "n_ra_positive_stays": 3,
+    "n_ra_negative_stays": 1,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.9213,
+    "aggregation_reasoning": "ANY_POSITIVE: 3/4 RA+",
+    "final_label": "RA+",
+    "final_confidence": 0.8324,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 4: 3 RA+, 1 RA-",
+      "[Agg] ANY_POSITIVE: 3/4 RA+",
+      "[Bayesian] P(PR+)=0.832, class=PR_LATENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.17, PR_LATENT:0.83, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 0.83, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "2473076",
+        "label": "RA+",
+        "confidence": 0.6267,
+        "acr_score": 2,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.6267420630489643,
+          "PR_LATENT": 0.3695113118770937,
+          "PR_REMISSION": 0.0029020812440577006,
+          "PR_MODERATE": 0.0008382432586923758,
+          "PR_SEVERE": 6.300571191981916e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.3733
+      },
+      {
+        "stay_id": "6307954",
         "label": "RA-",
         "confidence": 0.95,
         "acr_score": 0,
@@ -786,7 +945,139 @@
         "pr_positive_probability": 0.05
       },
       {
-        "stay_id": "8742404",
+        "stay_id": "8869169",
+        "label": "RA+",
+        "confidence": 0.501,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.5009648709137574,
+          "PR_LATENT": 0.4922604184531294,
+          "PR_REMISSION": 0.0048326657450108645,
+          "PR_MODERATE": 0.0019143460825585842,
+          "PR_SEVERE": 2.769880554368341e-05
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.499
+      },
+      {
+        "stay_id": "9870385",
+        "label": "RA+",
+        "confidence": 0.9213,
+        "acr_score": 4,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.07866143724457232,
+          "PR_LATENT": 0.8760062056566577,
+          "PR_REMISSION": 0.025800033992980406,
+          "PR_MODERATE": 0.019162635775370473,
+          "PR_SEVERE": 0.00036968733041904835
+        },
+        "predicted_class": "PR_LATENT",
+        "pr_positive_probability": 0.9213
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.1676,
+      "PR_LATENT": 0.8324,
+      "PR_REMISSION": 0.0,
+      "PR_MODERATE": 0.0,
+      "PR_SEVERE": 0.0
+    },
+    "patient_predicted_class": "PR_LATENT",
+    "patient_pr_positive_probability": 0.8324,
+    "patient_temporal_trend": "stable"
+  },
+  {
+    "patient_id": "1678901",
+    "n_stays": 4,
+    "stay_labels": [
+      "RA-",
+      "RA-",
+      "RA-",
+      "RA-"
+    ],
+    "stay_confidences": [
+      0.95,
+      0.95,
+      0.95,
+      0.9
+    ],
+    "n_ra_related_stays": 1,
+    "n_ra_positive_stays": 0,
+    "n_ra_negative_stays": 4,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA-",
+    "aggregation_confidence": 0.9375,
+    "aggregation_reasoning": "ANY_POSITIVE: 0/4 RA+",
+    "final_label": "RA-",
+    "final_confidence": 0.9832,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 4: 0 RA+, 4 RA-",
+      "[Agg] ANY_POSITIVE: 0/4 RA+",
+      "[Bayesian] P(PR+)=0.017, class=PR_ABSENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.98, PR_LATENT:0.02, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA- (conf: 0.98, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "1127838",
+        "label": "RA-",
+        "confidence": 0.95,
+        "acr_score": 0,
+        "is_ra_related": false,
+        "class_probabilities": {
+          "PR_ABSENT": 0.95,
+          "PR_LATENT": 0.03,
+          "PR_REMISSION": 0.01,
+          "PR_MODERATE": 0.005,
+          "PR_SEVERE": 0.005
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.05
+      },
+      {
+        "stay_id": "1715572",
+        "label": "RA-",
+        "confidence": 0.95,
+        "acr_score": 0,
+        "is_ra_related": false,
+        "class_probabilities": {
+          "PR_ABSENT": 0.95,
+          "PR_LATENT": 0.03,
+          "PR_REMISSION": 0.01,
+          "PR_MODERATE": 0.005,
+          "PR_SEVERE": 0.005
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.05
+      },
+      {
+        "stay_id": "5519768",
+        "label": "RA-",
+        "confidence": 0.95,
+        "acr_score": 0,
+        "is_ra_related": false,
+        "class_probabilities": {
+          "PR_ABSENT": 0.95,
+          "PR_LATENT": 0.03,
+          "PR_REMISSION": 0.01,
+          "PR_MODERATE": 0.005,
+          "PR_SEVERE": 0.005
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.05
+      },
+      {
+        "stay_id": "7754888",
         "label": "RA-",
         "confidence": 0.9,
         "acr_score": 1,
@@ -808,60 +1099,60 @@
     "llm_critic_reasoning": null,
     "llm_override_applied": false,
     "patient_class_probabilities": {
-      "PR_ABSENT": 0.9049,
-      "PR_LATENT": 0.0935,
-      "PR_REMISSION": 0.001,
-      "PR_MODERATE": 0.0005,
-      "PR_SEVERE": 0.0001
+      "PR_ABSENT": 0.9832,
+      "PR_LATENT": 0.0167,
+      "PR_REMISSION": 0.0001,
+      "PR_MODERATE": 0.0,
+      "PR_SEVERE": 0.0
     },
     "patient_predicted_class": "PR_ABSENT",
-    "patient_pr_positive_probability": 0.0951,
+    "patient_pr_positive_probability": 0.0168,
     "patient_temporal_trend": "stable"
   },
   {
-    "patient_id": "1581520",
+    "patient_id": "1789012",
     "n_stays": 1,
     "stay_labels": [
-      "RA-"
+      "RA+"
     ],
     "stay_confidences": [
-      0.9496
+      0.9998
     ],
     "n_ra_related_stays": 1,
-    "n_ra_positive_stays": 0,
-    "n_ra_negative_stays": 1,
+    "n_ra_positive_stays": 1,
+    "n_ra_negative_stays": 0,
     "aggregation_strategy": "any_positive",
-    "aggregation_label": "RA-",
-    "aggregation_confidence": 0.9496,
-    "aggregation_reasoning": "ANY_POSITIVE: 0/1 RA+",
-    "final_label": "RA-",
-    "final_confidence": 0.9496,
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.9998,
+    "aggregation_reasoning": "ANY_POSITIVE: 1/1 RA+",
+    "final_label": "RA+",
+    "final_confidence": 0.9998,
     "decision_source": "aggregation",
     "guardrails_passed": true,
     "guardrails_warnings": [],
     "reasoning_trace": [
-      "[Stays] 1: 0 RA+, 1 RA-",
-      "[Agg] ANY_POSITIVE: 0/1 RA+",
-      "[Bayesian] P(PR+)=0.950, class=PR_LATENT, trend=stable",
-      "[Bayesian] PR_ABSENT:0.05, PR_LATENT:0.58, PR_REMISSION:0.08, PR_MODERATE:0.28, PR_SEVERE:0.01",
-      "[Final] RA- (conf: 0.95, src: aggregation)"
+      "[Stays] 1: 1 RA+, 0 RA-",
+      "[Agg] ANY_POSITIVE: 1/1 RA+",
+      "[Bayesian] P(PR+)=1.000, class=PR_REMISSION, trend=stable",
+      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.03, PR_REMISSION:0.80, PR_MODERATE:0.15, PR_SEVERE:0.02",
+      "[Final] RA+ (conf: 1.00, src: aggregation)"
     ],
     "stay_details": [
       {
-        "stay_id": "2391930",
-        "label": "RA-",
-        "confidence": 0.9496,
-        "acr_score": 3,
+        "stay_id": "8133772",
+        "label": "RA+",
+        "confidence": 0.9998,
+        "acr_score": 4,
         "is_ra_related": true,
         "class_probabilities": {
-          "PR_ABSENT": 0.05043943523481861,
-          "PR_LATENT": 0.5759766297953264,
-          "PR_REMISSION": 0.08271773225071258,
-          "PR_MODERATE": 0.2787442455628921,
-          "PR_SEVERE": 0.012121957156250212
+          "PR_ABSENT": 0.00023202042578513934,
+          "PR_LATENT": 0.03369170496665998,
+          "PR_REMISSION": 0.8029563880568893,
+          "PR_MODERATE": 0.14552320898994478,
+          "PR_SEVERE": 0.017596677560720843
         },
-        "predicted_class": "PR_LATENT",
-        "pr_positive_probability": 0.9496
+        "predicted_class": "PR_REMISSION",
+        "pr_positive_probability": 0.9998
       }
     ],
     "llm_critic_used": false,
@@ -870,14 +1161,1265 @@
     "llm_critic_reasoning": null,
     "llm_override_applied": false,
     "patient_class_probabilities": {
-      "PR_ABSENT": 0.0504,
-      "PR_LATENT": 0.576,
-      "PR_REMISSION": 0.0827,
-      "PR_MODERATE": 0.2787,
-      "PR_SEVERE": 0.0121
+      "PR_ABSENT": 0.0002,
+      "PR_LATENT": 0.0337,
+      "PR_REMISSION": 0.803,
+      "PR_MODERATE": 0.1455,
+      "PR_SEVERE": 0.0176
+    },
+    "patient_predicted_class": "PR_REMISSION",
+    "patient_pr_positive_probability": 0.9998,
+    "patient_temporal_trend": "stable"
+  },
+  {
+    "patient_id": "1912345",
+    "n_stays": 1,
+    "stay_labels": [
+      "RA+"
+    ],
+    "stay_confidences": [
+      1.0
+    ],
+    "n_ra_related_stays": 1,
+    "n_ra_positive_stays": 1,
+    "n_ra_negative_stays": 0,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 1.0,
+    "aggregation_reasoning": "ANY_POSITIVE: 1/1 RA+",
+    "final_label": "RA+",
+    "final_confidence": 1.0,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 1: 1 RA+, 0 RA-",
+      "[Agg] ANY_POSITIVE: 1/1 RA+",
+      "[Bayesian] P(PR+)=1.000, class=PR_REMISSION, trend=stable",
+      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.00, PR_REMISSION:0.60, PR_MODERATE:0.32, PR_SEVERE:0.08",
+      "[Final] RA+ (conf: 1.00, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "4418599",
+        "label": "RA+",
+        "confidence": 1.0,
+        "acr_score": 4,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 3.398176955399051e-07,
+          "PR_LATENT": 0.0010485802954947581,
+          "PR_REMISSION": 0.5997660817702269,
+          "PR_MODERATE": 0.31703630964979274,
+          "PR_SEVERE": 0.08214868846679005
+        },
+        "predicted_class": "PR_REMISSION",
+        "pr_positive_probability": 1.0
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.0,
+      "PR_LATENT": 0.001,
+      "PR_REMISSION": 0.5998,
+      "PR_MODERATE": 0.317,
+      "PR_SEVERE": 0.0821
+    },
+    "patient_predicted_class": "PR_REMISSION",
+    "patient_pr_positive_probability": 1.0,
+    "patient_temporal_trend": "stable"
+  },
+  {
+    "patient_id": "1914822",
+    "n_stays": 3,
+    "stay_labels": [
+      "RA+",
+      "RA+",
+      "RA+"
+    ],
+    "stay_confidences": [
+      0.6267,
+      1.0,
+      1.0
+    ],
+    "n_ra_related_stays": 3,
+    "n_ra_positive_stays": 3,
+    "n_ra_negative_stays": 0,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 1.0,
+    "aggregation_reasoning": "ANY_POSITIVE: 3/3 RA+",
+    "final_label": "RA+",
+    "final_confidence": 1.0,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 3: 3 RA+, 0 RA-",
+      "[Agg] ANY_POSITIVE: 3/3 RA+",
+      "[Bayesian] P(PR+)=1.000, class=PR_REMISSION, trend=worsening",
+      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.00, PR_REMISSION:0.80, PR_MODERATE:0.19, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 1.00, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "2355874",
+        "label": "RA+",
+        "confidence": 0.6267,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.6267420630489643,
+          "PR_LATENT": 0.3695113118770937,
+          "PR_REMISSION": 0.0029020812440577006,
+          "PR_MODERATE": 0.0008382432586923758,
+          "PR_SEVERE": 6.300571191981916e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.3733
+      },
+      {
+        "stay_id": "7082268",
+        "label": "RA+",
+        "confidence": 1.0,
+        "acr_score": 4,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 6.033492356961949e-06,
+          "PR_LATENT": 0.009929404390232792,
+          "PR_REMISSION": 0.7099265544440941,
+          "PR_MODERATE": 0.24124315372338834,
+          "PR_SEVERE": 0.038894853949927616
+        },
+        "predicted_class": "PR_REMISSION",
+        "pr_positive_probability": 1.0
+      },
+      {
+        "stay_id": "9964234",
+        "label": "RA+",
+        "confidence": 1.0,
+        "acr_score": 5,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 5.825143027490365e-08,
+          "PR_LATENT": 0.0006990171481592946,
+          "PR_REMISSION": 0.17992046014046428,
+          "PR_MODERATE": 0.5072316951206258,
+          "PR_SEVERE": 0.3121487693393204
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 1.0
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.0,
+      "PR_LATENT": 0.0034,
+      "PR_REMISSION": 0.8035,
+      "PR_MODERATE": 0.1917,
+      "PR_SEVERE": 0.0014
+    },
+    "patient_predicted_class": "PR_REMISSION",
+    "patient_pr_positive_probability": 1.0,
+    "patient_temporal_trend": "worsening"
+  },
+  {
+    "patient_id": "1914896",
+    "n_stays": 2,
+    "stay_labels": [
+      "RA+",
+      "RA+"
+    ],
+    "stay_confidences": [
+      1.0,
+      1.0
+    ],
+    "n_ra_related_stays": 2,
+    "n_ra_positive_stays": 2,
+    "n_ra_negative_stays": 0,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 1.0,
+    "aggregation_reasoning": "ANY_POSITIVE: 2/2 RA+",
+    "final_label": "RA+",
+    "final_confidence": 1.0,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 2: 2 RA+, 0 RA-",
+      "[Agg] ANY_POSITIVE: 2/2 RA+",
+      "[Bayesian] P(PR+)=1.000, class=PR_MODERATE, trend=worsening",
+      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.00, PR_REMISSION:0.08, PR_MODERATE:0.57, PR_SEVERE:0.35",
+      "[Final] RA+ (conf: 1.00, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "8752528",
+        "label": "RA+",
+        "confidence": 1.0,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 2.095841363501275e-06,
+          "PR_LATENT": 0.002200633393995724,
+          "PR_REMISSION": 0.38840393359169406,
+          "PR_MODERATE": 0.45624509467455254,
+          "PR_SEVERE": 0.1531482424983942
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 1.0
+      },
+      {
+        "stay_id": "9701586",
+        "label": "RA+",
+        "confidence": 1.0,
+        "acr_score": 5,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 5.9491521548740425e-08,
+          "PR_LATENT": 0.0003904131024180929,
+          "PR_REMISSION": 0.061250238290108096,
+          "PR_MODERATE": 0.5036402267060291,
+          "PR_SEVERE": 0.43471906240992325
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 1.0
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.0,
+      "PR_LATENT": 0.0,
+      "PR_REMISSION": 0.0784,
+      "PR_MODERATE": 0.5749,
+      "PR_SEVERE": 0.3467
+    },
+    "patient_predicted_class": "PR_MODERATE",
+    "patient_pr_positive_probability": 1.0,
+    "patient_temporal_trend": "worsening"
+  },
+  {
+    "patient_id": "1945719",
+    "n_stays": 5,
+    "stay_labels": [
+      "RA-",
+      "RA+",
+      "RA+",
+      "RA+",
+      "RA+"
+    ],
+    "stay_confidences": [
+      0.8656,
+      1.0,
+      1.0,
+      1.0,
+      1.0
+    ],
+    "n_ra_related_stays": 5,
+    "n_ra_positive_stays": 4,
+    "n_ra_negative_stays": 1,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 1.0,
+    "aggregation_reasoning": "ANY_POSITIVE: 4/5 RA+",
+    "final_label": "RA+",
+    "final_confidence": 1.0,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 5: 4 RA+, 1 RA-",
+      "[Agg] ANY_POSITIVE: 4/5 RA+",
+      "[Bayesian] P(PR+)=1.000, class=PR_MODERATE, trend=worsening",
+      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.00, PR_REMISSION:0.22, PR_MODERATE:0.77, PR_SEVERE:0.01",
+      "[Final] RA+ (conf: 1.00, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "1860969",
+        "label": "RA-",
+        "confidence": 0.8656,
+        "acr_score": 4,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.13435793230289308,
+          "PR_LATENT": 0.8182701116153314,
+          "PR_REMISSION": 0.014689278295061614,
+          "PR_MODERATE": 0.03182161548532384,
+          "PR_SEVERE": 0.0008610623013901871
+        },
+        "predicted_class": "PR_LATENT",
+        "pr_positive_probability": 0.8656
+      },
+      {
+        "stay_id": "3166605",
+        "label": "RA+",
+        "confidence": 1.0,
+        "acr_score": 4,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 3.398176955399051e-07,
+          "PR_LATENT": 0.0010485802954947581,
+          "PR_REMISSION": 0.5997660817702269,
+          "PR_MODERATE": 0.31703630964979274,
+          "PR_SEVERE": 0.08214868846679005
+        },
+        "predicted_class": "PR_REMISSION",
+        "pr_positive_probability": 1.0
+      },
+      {
+        "stay_id": "4323229",
+        "label": "RA+",
+        "confidence": 1.0,
+        "acr_score": 7,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 1.8143092790336557e-07,
+          "PR_LATENT": 0.0013063026563130847,
+          "PR_REMISSION": 0.26898404498254697,
+          "PR_MODERATE": 0.5529414631276862,
+          "PR_SEVERE": 0.17676800780252577
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 1.0
+      },
+      {
+        "stay_id": "6998272",
+        "label": "RA+",
+        "confidence": 1.0,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 2.095841363501275e-06,
+          "PR_LATENT": 0.002200633393995724,
+          "PR_REMISSION": 0.38840393359169406,
+          "PR_MODERATE": 0.45624509467455254,
+          "PR_SEVERE": 0.1531482424983942
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 1.0
+      },
+      {
+        "stay_id": "8762825",
+        "label": "RA+",
+        "confidence": 1.0,
+        "acr_score": 5,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 4.562906572134425e-06,
+          "PR_LATENT": 0.010057018429882495,
+          "PR_REMISSION": 0.1797626567171459,
+          "PR_MODERATE": 0.6950219187189877,
+          "PR_SEVERE": 0.11515384322741179
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 1.0
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.0,
+      "PR_LATENT": 0.0,
+      "PR_REMISSION": 0.2244,
+      "PR_MODERATE": 0.7699,
+      "PR_SEVERE": 0.0057
+    },
+    "patient_predicted_class": "PR_MODERATE",
+    "patient_pr_positive_probability": 1.0,
+    "patient_temporal_trend": "worsening"
+  },
+  {
+    "patient_id": "2012345",
+    "n_stays": 6,
+    "stay_labels": [
+      "RA-",
+      "RA+",
+      "RA+",
+      "RA+",
+      "RA+",
+      "RA+"
+    ],
+    "stay_confidences": [
+      0.95,
+      0.9213,
+      0.501,
+      0.6267,
+      0.9998,
+      1.0
+    ],
+    "n_ra_related_stays": 5,
+    "n_ra_positive_stays": 5,
+    "n_ra_negative_stays": 1,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 1.0,
+    "aggregation_reasoning": "ANY_POSITIVE: 5/6 RA+",
+    "final_label": "RA+",
+    "final_confidence": 1.0,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 6: 5 RA+, 1 RA-",
+      "[Agg] ANY_POSITIVE: 5/6 RA+",
+      "[Bayesian] P(PR+)=1.000, class=PR_LATENT, trend=worsening",
+      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.87, PR_REMISSION:0.13, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 1.00, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "3697976",
+        "label": "RA-",
+        "confidence": 0.95,
+        "acr_score": 0,
+        "is_ra_related": false,
+        "class_probabilities": {
+          "PR_ABSENT": 0.95,
+          "PR_LATENT": 0.03,
+          "PR_REMISSION": 0.01,
+          "PR_MODERATE": 0.005,
+          "PR_SEVERE": 0.005
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.05
+      },
+      {
+        "stay_id": "3953174",
+        "label": "RA+",
+        "confidence": 0.9213,
+        "acr_score": 4,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.07866143724457232,
+          "PR_LATENT": 0.8760062056566577,
+          "PR_REMISSION": 0.025800033992980406,
+          "PR_MODERATE": 0.019162635775370473,
+          "PR_SEVERE": 0.00036968733041904835
+        },
+        "predicted_class": "PR_LATENT",
+        "pr_positive_probability": 0.9213
+      },
+      {
+        "stay_id": "3980060",
+        "label": "RA+",
+        "confidence": 0.501,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.5009648709137574,
+          "PR_LATENT": 0.4922604184531294,
+          "PR_REMISSION": 0.0048326657450108645,
+          "PR_MODERATE": 0.0019143460825585842,
+          "PR_SEVERE": 2.769880554368341e-05
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.499
+      },
+      {
+        "stay_id": "4620914",
+        "label": "RA+",
+        "confidence": 0.6267,
+        "acr_score": 2,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.6267420630489643,
+          "PR_LATENT": 0.3695113118770937,
+          "PR_REMISSION": 0.0029020812440577006,
+          "PR_MODERATE": 0.0008382432586923758,
+          "PR_SEVERE": 6.300571191981916e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.3733
+      },
+      {
+        "stay_id": "8410741",
+        "label": "RA+",
+        "confidence": 0.9998,
+        "acr_score": 4,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.00023202042578513934,
+          "PR_LATENT": 0.03369170496665998,
+          "PR_REMISSION": 0.8029563880568893,
+          "PR_MODERATE": 0.14552320898994478,
+          "PR_SEVERE": 0.017596677560720843
+        },
+        "predicted_class": "PR_REMISSION",
+        "pr_positive_probability": 0.9998
+      },
+      {
+        "stay_id": "9442218",
+        "label": "RA+",
+        "confidence": 1.0,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 4.821184674396136e-07,
+          "PR_LATENT": 0.0012655609546632068,
+          "PR_REMISSION": 0.2978226506916563,
+          "PR_MODERATE": 0.5247634422051335,
+          "PR_SEVERE": 0.17614786403007957
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 1.0
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.0,
+      "PR_LATENT": 0.8732,
+      "PR_REMISSION": 0.1251,
+      "PR_MODERATE": 0.0017,
+      "PR_SEVERE": 0.0
     },
     "patient_predicted_class": "PR_LATENT",
-    "patient_pr_positive_probability": 0.9496,
+    "patient_pr_positive_probability": 1.0,
+    "patient_temporal_trend": "worsening"
+  },
+  {
+    "patient_id": "2031847",
+    "n_stays": 3,
+    "stay_labels": [
+      "RA-",
+      "RA-",
+      "RA+"
+    ],
+    "stay_confidences": [
+      0.95,
+      0.9788,
+      1.0
+    ],
+    "n_ra_related_stays": 2,
+    "n_ra_positive_stays": 1,
+    "n_ra_negative_stays": 2,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 1.0,
+    "aggregation_reasoning": "ANY_POSITIVE: 1/3 RA+",
+    "final_label": "RA+",
+    "final_confidence": 1.0,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 3: 1 RA+, 2 RA-",
+      "[Agg] ANY_POSITIVE: 1/3 RA+",
+      "[Bayesian] P(PR+)=1.000, class=PR_LATENT, trend=worsening",
+      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.54, PR_REMISSION:0.32, PR_MODERATE:0.13, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 1.00, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "1390973",
+        "label": "RA-",
+        "confidence": 0.95,
+        "acr_score": 0,
+        "is_ra_related": false,
+        "class_probabilities": {
+          "PR_ABSENT": 0.95,
+          "PR_LATENT": 0.03,
+          "PR_REMISSION": 0.01,
+          "PR_MODERATE": 0.005,
+          "PR_SEVERE": 0.005
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.05
+      },
+      {
+        "stay_id": "1621800",
+        "label": "RA-",
+        "confidence": 0.9788,
+        "acr_score": 4,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.02115949301697699,
+          "PR_LATENT": 0.9163810461238399,
+          "PR_REMISSION": 0.012145117119990133,
+          "PR_MODERATE": 0.048110004976735454,
+          "PR_SEVERE": 0.0022043387624572875
+        },
+        "predicted_class": "PR_LATENT",
+        "pr_positive_probability": 0.9788
+      },
+      {
+        "stay_id": "2842011",
+        "label": "RA+",
+        "confidence": 1.0,
+        "acr_score": 4,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 6.033492356961949e-06,
+          "PR_LATENT": 0.009929404390232792,
+          "PR_REMISSION": 0.7099265544440941,
+          "PR_MODERATE": 0.24124315372338834,
+          "PR_SEVERE": 0.038894853949927616
+        },
+        "predicted_class": "PR_REMISSION",
+        "pr_positive_probability": 1.0
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.0,
+      "PR_LATENT": 0.5396,
+      "PR_REMISSION": 0.3236,
+      "PR_MODERATE": 0.1324,
+      "PR_SEVERE": 0.0044
+    },
+    "patient_predicted_class": "PR_LATENT",
+    "patient_pr_positive_probability": 1.0,
+    "patient_temporal_trend": "worsening"
+  },
+  {
+    "patient_id": "2136912",
+    "n_stays": 3,
+    "stay_labels": [
+      "RA-",
+      "RA+",
+      "RA+"
+    ],
+    "stay_confidences": [
+      0.5001,
+      0.9213,
+      0.6267
+    ],
+    "n_ra_related_stays": 3,
+    "n_ra_positive_stays": 2,
+    "n_ra_negative_stays": 1,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.9213,
+    "aggregation_reasoning": "ANY_POSITIVE: 2/3 RA+",
+    "final_label": "RA+",
+    "final_confidence": 0.9643,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 3: 2 RA+, 1 RA-",
+      "[Agg] ANY_POSITIVE: 2/3 RA+",
+      "[Bayesian] P(PR+)=0.964, class=PR_LATENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.04, PR_LATENT:0.96, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 0.96, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "3872045",
+        "label": "RA-",
+        "confidence": 0.5001,
+        "acr_score": 0,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.4999325833191709,
+          "PR_LATENT": 0.48715235175466487,
+          "PR_REMISSION": 0.009838323444920317,
+          "PR_MODERATE": 0.003044702204111609,
+          "PR_SEVERE": 3.2039277132411565e-05
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.5001
+      },
+      {
+        "stay_id": "8030041",
+        "label": "RA+",
+        "confidence": 0.9213,
+        "acr_score": 4,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.07866143724457232,
+          "PR_LATENT": 0.8760062056566577,
+          "PR_REMISSION": 0.025800033992980406,
+          "PR_MODERATE": 0.019162635775370473,
+          "PR_SEVERE": 0.00036968733041904835
+        },
+        "predicted_class": "PR_LATENT",
+        "pr_positive_probability": 0.9213
+      },
+      {
+        "stay_id": "8947818",
+        "label": "RA+",
+        "confidence": 0.6267,
+        "acr_score": 2,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.6267420630489643,
+          "PR_LATENT": 0.3695113118770937,
+          "PR_REMISSION": 0.0029020812440577006,
+          "PR_MODERATE": 0.0008382432586923758,
+          "PR_SEVERE": 6.300571191981916e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.3733
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.0357,
+      "PR_LATENT": 0.9643,
+      "PR_REMISSION": 0.0,
+      "PR_MODERATE": 0.0,
+      "PR_SEVERE": 0.0
+    },
+    "patient_predicted_class": "PR_LATENT",
+    "patient_pr_positive_probability": 0.9643,
+    "patient_temporal_trend": "stable"
+  },
+  {
+    "patient_id": "2137086",
+    "n_stays": 6,
+    "stay_labels": [
+      "RA-",
+      "RA+",
+      "RA+",
+      "RA+",
+      "RA+",
+      "RA-"
+    ],
+    "stay_confidences": [
+      0.5932999999999999,
+      0.6267,
+      0.9998,
+      0.6267,
+      0.5932999999999999,
+      0.95
+    ],
+    "n_ra_related_stays": 5,
+    "n_ra_positive_stays": 4,
+    "n_ra_negative_stays": 2,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.9998,
+    "aggregation_reasoning": "ANY_POSITIVE: 4/6 RA+",
+    "final_label": "RA+",
+    "final_confidence": 0.8834,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 6: 4 RA+, 2 RA-",
+      "[Agg] ANY_POSITIVE: 4/6 RA+",
+      "[Bayesian] P(PR+)=0.883, class=PR_LATENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.12, PR_LATENT:0.88, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 0.88, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "1095092",
+        "label": "RA-",
+        "confidence": 0.5932999999999999,
+        "acr_score": 0,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.5933196045334074,
+          "PR_LATENT": 0.39677100481239796,
+          "PR_REMISSION": 0.008413670873598586,
+          "PR_MODERATE": 0.0014878912710034654,
+          "PR_SEVERE": 7.828509592476959e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.4067
+      },
+      {
+        "stay_id": "2361641",
+        "label": "RA+",
+        "confidence": 0.6267,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.6267420630489643,
+          "PR_LATENT": 0.3695113118770937,
+          "PR_REMISSION": 0.0029020812440577006,
+          "PR_MODERATE": 0.0008382432586923758,
+          "PR_SEVERE": 6.300571191981916e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.3733
+      },
+      {
+        "stay_id": "2443157",
+        "label": "RA+",
+        "confidence": 0.9998,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.0002388638463062667,
+          "PR_LATENT": 0.020323499342920104,
+          "PR_REMISSION": 0.7749745469916097,
+          "PR_MODERATE": 0.20064562893786383,
+          "PR_SEVERE": 0.00381746088130016
+        },
+        "predicted_class": "PR_REMISSION",
+        "pr_positive_probability": 0.9998
+      },
+      {
+        "stay_id": "3397658",
+        "label": "RA+",
+        "confidence": 0.6267,
+        "acr_score": 2,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.6267420630489643,
+          "PR_LATENT": 0.3695113118770937,
+          "PR_REMISSION": 0.0029020812440577006,
+          "PR_MODERATE": 0.0008382432586923758,
+          "PR_SEVERE": 6.300571191981916e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.3733
+      },
+      {
+        "stay_id": "6197697",
+        "label": "RA+",
+        "confidence": 0.5932999999999999,
+        "acr_score": 6,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.5933196045334074,
+          "PR_LATENT": 0.39677100481239796,
+          "PR_REMISSION": 0.008413670873598586,
+          "PR_MODERATE": 0.0014878912710034654,
+          "PR_SEVERE": 7.828509592476959e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.4067
+      },
+      {
+        "stay_id": "8137367",
+        "label": "RA-",
+        "confidence": 0.95,
+        "acr_score": 0,
+        "is_ra_related": false,
+        "class_probabilities": {
+          "PR_ABSENT": 0.95,
+          "PR_LATENT": 0.03,
+          "PR_REMISSION": 0.01,
+          "PR_MODERATE": 0.005,
+          "PR_SEVERE": 0.005
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.05
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.1166,
+      "PR_LATENT": 0.8834,
+      "PR_REMISSION": 0.0,
+      "PR_MODERATE": 0.0,
+      "PR_SEVERE": 0.0
+    },
+    "patient_predicted_class": "PR_LATENT",
+    "patient_pr_positive_probability": 0.8834,
+    "patient_temporal_trend": "stable"
+  },
+  {
+    "patient_id": "2137160",
+    "n_stays": 3,
+    "stay_labels": [
+      "RA-",
+      "RA+",
+      "RA+"
+    ],
+    "stay_confidences": [
+      0.7952,
+      0.9999,
+      0.9999
+    ],
+    "n_ra_related_stays": 3,
+    "n_ra_positive_stays": 2,
+    "n_ra_negative_stays": 1,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.9999,
+    "aggregation_reasoning": "ANY_POSITIVE: 2/3 RA+",
+    "final_label": "RA+",
+    "final_confidence": 1.0,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 3: 2 RA+, 1 RA-",
+      "[Agg] ANY_POSITIVE: 2/3 RA+",
+      "[Bayesian] P(PR+)=1.000, class=PR_MODERATE, trend=worsening",
+      "[Bayesian] PR_ABSENT:0.00, PR_LATENT:0.11, PR_REMISSION:0.27, PR_MODERATE:0.62, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 1.00, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "3278616",
+        "label": "RA-",
+        "confidence": 0.7952,
+        "acr_score": 1,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.2048267353935225,
+          "PR_LATENT": 0.7761855230200948,
+          "PR_REMISSION": 0.0070539819653923945,
+          "PR_MODERATE": 0.011642782864073766,
+          "PR_SEVERE": 0.0002909767569165612
+        },
+        "predicted_class": "PR_LATENT",
+        "pr_positive_probability": 0.7952
+      },
+      {
+        "stay_id": "6531409",
+        "label": "RA+",
+        "confidence": 0.9999,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.00014903598848050854,
+          "PR_LATENT": 0.02874265465929335,
+          "PR_REMISSION": 0.35228999241150377,
+          "PR_MODERATE": 0.5675290385212006,
+          "PR_SEVERE": 0.05128927841952179
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 0.9999
+      },
+      {
+        "stay_id": "7393151",
+        "label": "RA+",
+        "confidence": 0.9999,
+        "acr_score": 2,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.00014903598848050854,
+          "PR_LATENT": 0.02874265465929335,
+          "PR_REMISSION": 0.35228999241150377,
+          "PR_MODERATE": 0.5675290385212006,
+          "PR_SEVERE": 0.05128927841952179
+        },
+        "predicted_class": "PR_MODERATE",
+        "pr_positive_probability": 0.9999
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.0,
+      "PR_LATENT": 0.1053,
+      "PR_REMISSION": 0.2733,
+      "PR_MODERATE": 0.6204,
+      "PR_SEVERE": 0.0011
+    },
+    "patient_predicted_class": "PR_MODERATE",
+    "patient_pr_positive_probability": 1.0,
+    "patient_temporal_trend": "worsening"
+  },
+  {
+    "patient_id": "2234567",
+    "n_stays": 1,
+    "stay_labels": [
+      "RA-"
+    ],
+    "stay_confidences": [
+      0.5932999999999999
+    ],
+    "n_ra_related_stays": 1,
+    "n_ra_positive_stays": 0,
+    "n_ra_negative_stays": 1,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA-",
+    "aggregation_confidence": 0.5932999999999999,
+    "aggregation_reasoning": "ANY_POSITIVE: 0/1 RA+",
+    "final_label": "RA-",
+    "final_confidence": 0.5932999999999999,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 1: 0 RA+, 1 RA-",
+      "[Agg] ANY_POSITIVE: 0/1 RA+",
+      "[Bayesian] P(PR+)=0.407, class=PR_ABSENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.59, PR_LATENT:0.40, PR_REMISSION:0.01, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA- (conf: 0.59, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "9781229",
+        "label": "RA-",
+        "confidence": 0.5932999999999999,
+        "acr_score": 0,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.5933196045334074,
+          "PR_LATENT": 0.39677100481239796,
+          "PR_REMISSION": 0.008413670873598586,
+          "PR_MODERATE": 0.0014878912710034654,
+          "PR_SEVERE": 7.828509592476959e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.4067
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.5933,
+      "PR_LATENT": 0.3968,
+      "PR_REMISSION": 0.0084,
+      "PR_MODERATE": 0.0015,
+      "PR_SEVERE": 0.0
+    },
+    "patient_predicted_class": "PR_ABSENT",
+    "patient_pr_positive_probability": 0.4067,
+    "patient_temporal_trend": "stable"
+  },
+  {
+    "patient_id": "2345678",
+    "n_stays": 4,
+    "stay_labels": [
+      "RA-",
+      "RA-",
+      "RA+",
+      "RA+"
+    ],
+    "stay_confidences": [
+      0.95,
+      0.5932999999999999,
+      0.501,
+      0.501
+    ],
+    "n_ra_related_stays": 3,
+    "n_ra_positive_stays": 2,
+    "n_ra_negative_stays": 2,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.501,
+    "aggregation_reasoning": "ANY_POSITIVE: 2/4 RA+",
+    "final_label": "RA+",
+    "final_confidence": 0.6191,
+    "decision_source": "aggregation",
+    "guardrails_passed": true,
+    "guardrails_warnings": [],
+    "reasoning_trace": [
+      "[Stays] 4: 2 RA+, 2 RA-",
+      "[Agg] ANY_POSITIVE: 2/4 RA+",
+      "[Bayesian] P(PR+)=0.381, class=PR_ABSENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.62, PR_LATENT:0.38, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 0.62, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "1929456",
+        "label": "RA-",
+        "confidence": 0.95,
+        "acr_score": 0,
+        "is_ra_related": false,
+        "class_probabilities": {
+          "PR_ABSENT": 0.95,
+          "PR_LATENT": 0.03,
+          "PR_REMISSION": 0.01,
+          "PR_MODERATE": 0.005,
+          "PR_SEVERE": 0.005
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.05
+      },
+      {
+        "stay_id": "4368771",
+        "label": "RA-",
+        "confidence": 0.5932999999999999,
+        "acr_score": 1,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.5933196045334074,
+          "PR_LATENT": 0.39677100481239796,
+          "PR_REMISSION": 0.008413670873598586,
+          "PR_MODERATE": 0.0014878912710034654,
+          "PR_SEVERE": 7.828509592476959e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.4067
+      },
+      {
+        "stay_id": "4547293",
+        "label": "RA+",
+        "confidence": 0.501,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.5009648709137574,
+          "PR_LATENT": 0.4922604184531294,
+          "PR_REMISSION": 0.0048326657450108645,
+          "PR_MODERATE": 0.0019143460825585842,
+          "PR_SEVERE": 2.769880554368341e-05
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.499
+      },
+      {
+        "stay_id": "7800313",
+        "label": "RA+",
+        "confidence": 0.501,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.5009648709137574,
+          "PR_LATENT": 0.4922604184531294,
+          "PR_REMISSION": 0.0048326657450108645,
+          "PR_MODERATE": 0.0019143460825585842,
+          "PR_SEVERE": 2.769880554368341e-05
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.499
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.6191,
+      "PR_LATENT": 0.3809,
+      "PR_REMISSION": 0.0,
+      "PR_MODERATE": 0.0,
+      "PR_SEVERE": 0.0
+    },
+    "patient_predicted_class": "PR_ABSENT",
+    "patient_pr_positive_probability": 0.3809,
+    "patient_temporal_trend": "stable"
+  },
+  {
+    "patient_id": "2468013",
+    "n_stays": 3,
+    "stay_labels": [
+      "RA+",
+      "RA-",
+      "RA-"
+    ],
+    "stay_confidences": [
+      0.6267,
+      0.95,
+      0.9635
+    ],
+    "n_ra_related_stays": 2,
+    "n_ra_positive_stays": 1,
+    "n_ra_negative_stays": 2,
+    "aggregation_strategy": "any_positive",
+    "aggregation_label": "RA+",
+    "aggregation_confidence": 0.6267,
+    "aggregation_reasoning": "ANY_POSITIVE: 1/3 RA+",
+    "final_label": "RA+",
+    "final_confidence": 0.7345,
+    "decision_source": "aggregation",
+    "guardrails_passed": false,
+    "guardrails_warnings": [
+      "Temporal contradiction: crp both + and - across stays"
+    ],
+    "reasoning_trace": [
+      "[Stays] 3: 1 RA+, 2 RA-",
+      "[Agg] ANY_POSITIVE: 1/3 RA+",
+      "[Guardrail] Temporal contradiction: crp both + and - across stays",
+      "[Bayesian] P(PR+)=0.735, class=PR_LATENT, trend=stable",
+      "[Bayesian] PR_ABSENT:0.27, PR_LATENT:0.73, PR_REMISSION:0.00, PR_MODERATE:0.00, PR_SEVERE:0.00",
+      "[Final] RA+ (conf: 0.73, src: aggregation)"
+    ],
+    "stay_details": [
+      {
+        "stay_id": "5321417",
+        "label": "RA+",
+        "confidence": 0.6267,
+        "acr_score": 3,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.6267420630489643,
+          "PR_LATENT": 0.3695113118770937,
+          "PR_REMISSION": 0.0029020812440577006,
+          "PR_MODERATE": 0.0008382432586923758,
+          "PR_SEVERE": 6.300571191981916e-06
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.3733
+      },
+      {
+        "stay_id": "7779130",
+        "label": "RA-",
+        "confidence": 0.95,
+        "acr_score": 0,
+        "is_ra_related": false,
+        "class_probabilities": {
+          "PR_ABSENT": 0.95,
+          "PR_LATENT": 0.03,
+          "PR_REMISSION": 0.01,
+          "PR_MODERATE": 0.005,
+          "PR_SEVERE": 0.005
+        },
+        "predicted_class": "PR_ABSENT",
+        "pr_positive_probability": 0.05
+      },
+      {
+        "stay_id": "8431849",
+        "label": "RA-",
+        "confidence": 0.9635,
+        "acr_score": 2,
+        "is_ra_related": true,
+        "class_probabilities": {
+          "PR_ABSENT": 0.03651895760106646,
+          "PR_LATENT": 0.6486920068559516,
+          "PR_REMISSION": 0.06288340888177942,
+          "PR_MODERATE": 0.24217834932839258,
+          "PR_SEVERE": 0.009727277332810053
+        },
+        "predicted_class": "PR_LATENT",
+        "pr_positive_probability": 0.9635
+      }
+    ],
+    "llm_critic_used": false,
+    "llm_critic_recommendation": null,
+    "llm_critic_confidence": null,
+    "llm_critic_reasoning": null,
+    "llm_override_applied": false,
+    "patient_class_probabilities": {
+      "PR_ABSENT": 0.2655,
+      "PR_LATENT": 0.7338,
+      "PR_REMISSION": 0.0005,
+      "PR_MODERATE": 0.0002,
+      "PR_SEVERE": 0.0
+    },
+    "patient_predicted_class": "PR_LATENT",
+    "patient_pr_positive_probability": 0.7345,
     "patient_temporal_trend": "stable"
   }
 ]

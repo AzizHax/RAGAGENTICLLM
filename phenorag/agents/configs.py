@@ -43,7 +43,7 @@ class Agent2Config:
     temperature: float = 0.1
     timeout_s: int = 180
 
-    acr_threshold: int = 5
+    acr_threshold: int = 6
     rf_uln: float = 20.0
     ccp_uln: float = 10.0
     crp_threshold: float = 10.0

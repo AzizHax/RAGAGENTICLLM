@@ -465,6 +465,10 @@ def main():
     # ── GT séjour-level + sélection patients + checkpoint ──────────
     parser.add_argument("--gt-stay-csv", default=None,
                         help="CSV ground truth séjour-level (id,NIP,NDA,PR)")
+    parser.add_argument("--aggregation", default="any_positive",
+                    choices=["any_positive", "strict_any_positive",
+                             "majority", "confirmed"],
+                    help="Axe E : patient-level aggregation strategy")
     parser.add_argument("--n-patients", type=int, default=None,
                         help="Nombre de patients à traiter (N premiers du fichier)")
     parser.add_argument("--checkpoint-interval", type=float, default=5.0,

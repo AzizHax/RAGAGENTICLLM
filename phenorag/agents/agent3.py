@@ -74,6 +74,53 @@ class Guardrails:
 
 class Aggregation:
 
+    # ── Helper : un stay RA+ s'appuie-t-il sur un signal fiable ? ──
+    @staticmethod
+    def _is_strong_stay(assessment: Dict) -> bool:
+        """
+        Détermine si un stay RA+ s'appuie sur un signal fiable, ou si c'est
+        un UNCERTAIN avec signal faible isolé (à filtrer en agrégation stricte).
+
+        Critères "strong" (au moins UN doit être vrai) :
+          1. Décision rule-based directe (internal_label != UNCERTAIN)
+          2. ACR score >= 4 (proche du seuil clinique)
+          3. Completeness > 0.25 (pas une seule dimension renseignée sur 4)
+          4. CCP+ présent (signal très spécifique pour PR)
+          5. DMARD/biologique présent (preuve thérapeutique)
+        """
+        if assessment.get("final_stay_label") != "RA+":
+            return False
+
+        # 1) Décision rule-based directe
+        if (assessment.get("internal_label") or "").upper() != "UNCERTAIN":
+            return True
+
+        # 2) ACR score raisonnable
+        if assessment.get("acr_eular_final_score", 0) >= 4:
+            return True
+
+        # 3) Completeness suffisante
+        if assessment.get("completeness", 0) > 0.25:
+            return True
+
+        # 4-5) Signaux objectifs forts (CCP+ ou DMARD/biologique)
+        facts = assessment.get("extracted_facts", {}) or {}
+        for lab in (facts.get("labs") or []):
+            if isinstance(lab, dict):
+                test = (lab.get("test") or "").lower()
+                pol = (lab.get("polarity") or "").lower()
+                if "ccp" in test and pol == "positive":
+                    return True
+        for drug in (facts.get("drugs") or []):
+            if isinstance(drug, dict) and (drug.get("category") or "") in (
+                "csDMARD", "bDMARD", "tsDMARD"
+            ):
+                return True
+
+        return False  # UNCERTAIN faible isolé
+
+    # ── Stratégies d'agrégation ──
+
     @staticmethod
     def any_positive(assessments: List[Dict]) -> Tuple[str, float, str]:
         n = len(assessments)
@@ -83,6 +130,36 @@ class Aggregation:
             return "RA+", mx, f"ANY_POSITIVE: {len(pos)}/{n} RA+"
         avg = sum(a["confidence"] for a in assessments) / n
         return "RA-", avg, f"ANY_POSITIVE: 0/{n} RA+"
+
+    @staticmethod
+    def strict_any_positive(assessments: List[Dict]) -> Tuple[str, float, str]:
+        """
+        Variante d'any_positive qui filtre les stays RA+ "faibles isolés"
+        (UNCERTAIN avec un seul signal borderline, completeness <= 0.25).
+
+        Un patient n'est RA+ que si AU MOINS UN de ses stays RA+ est
+        "strong" (cf. _is_strong_stay).
+        """
+        n = len(assessments)
+        pos = [a for a in assessments if a["final_stay_label"] == "RA+"]
+
+        if not pos:
+            avg = sum(a["confidence"] for a in assessments) / n if n else 0.5
+            return "RA-", avg, f"STRICT_ANY_POSITIVE: 0/{n} RA+"
+
+        strong_pos = [a for a in pos if Aggregation._is_strong_stay(a)]
+
+        if strong_pos:
+            mx = max(a["confidence"] for a in strong_pos)
+            reason = (f"STRICT_ANY_POSITIVE: {len(strong_pos)}/{n} strong RA+ "
+                      f"(over {len(pos)} raw RA+)")
+            return "RA+", mx, reason
+
+        # Tous les stays RA+ sont des UNCERTAIN faibles isolés -> patient RA-
+        avg = sum(a["confidence"] for a in pos) / len(pos)
+        reason = (f"STRICT_ANY_POSITIVE: {len(pos)}/{n} RA+ but ALL weak/isolated "
+                  f"-> RA-")
+        return "RA-", avg, reason
 
     @staticmethod
     def majority(assessments: List[Dict]) -> Tuple[str, float, str]:
@@ -105,6 +182,7 @@ class Aggregation:
     @classmethod
     def run(cls, assessments: List[Dict], strategy: str) -> Tuple[str, float, str]:
         fn = {"any_positive": cls.any_positive,
+              "strict_any_positive": cls.strict_any_positive,
               "majority": cls.majority,
               "confirmed": cls.confirmed}
         if strategy not in fn:

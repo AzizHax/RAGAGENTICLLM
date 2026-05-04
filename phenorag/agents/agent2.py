@@ -45,6 +45,67 @@ TargetedSearchFn = Callable[[Dict, List[str]], Dict[str, Any]]
 
 
 # ═══════════════════════════════════════════════════════════════
+# SAFETY: re-inference polarity (failsafe pour Agent 1)
+# ═══════════════════════════════════════════════════════════════
+
+_NORM_LT_RX = re.compile(r"N\s*<\s*(\d+(?:[.,]\d+)?)", re.I)
+_RF_VAL_RX  = re.compile(r"(\d+(?:[.,]\d+)?)\s*(?:UI|IU|U)/?\s*mL", re.I)
+_CCP_VAL_RX = re.compile(r"(\d+(?:[.,]\d+)?)\s*U/?\s*mL", re.I)
+
+
+def _infer_polarity_safety(facts: Dict, rf_uln: float = 20.0,
+                            ccp_uln: float = 10.0) -> Dict:
+    """
+    Failsafe : ré-infère la polarity des labs RF/anti-CCP avec polarity=unknown
+    quand une valeur numérique est présente dans le snippet ou la value.
+
+    Utile quand Agent 1 (LLM ou regex) a échoué à inférer la polarity à partir
+    d'une valeur explicite comme "Anti-CCP: 46 U/mL (N<10)".
+    """
+    for lab in (facts.get("labs") or []):
+        if not isinstance(lab, dict):
+            continue
+        pol = (lab.get("polarity") or "").lower()
+        test = (lab.get("test") or "").lower()
+        if pol != "unknown" or test not in ("rf", "anti-ccp", "ccp", "acpa"):
+            continue
+
+        ev = lab.get("evidence", {})
+        snippet = ev.get("snippet", "") if isinstance(ev, dict) else str(ev)
+        text = f"{snippet} {lab.get('value', '')}"
+
+        if test == "rf":
+            m = _RF_VAL_RX.search(text)
+            threshold = rf_uln
+            unit = "UI/mL"
+        else:
+            m = _CCP_VAL_RX.search(text)
+            threshold = ccp_uln
+            unit = "U/mL"
+
+        if not m:
+            continue
+
+        try:
+            value = float(m.group(1).replace(",", "."))
+        except (ValueError, TypeError):
+            continue
+
+        nm = _NORM_LT_RX.search(text)
+        if nm:
+            try:
+                threshold = float(nm.group(1).replace(",", "."))
+            except (ValueError, TypeError):
+                pass
+
+        lab["polarity"] = "positive" if value > threshold else "negative"
+        if not lab.get("value"):
+            lab["value"] = f"{value:g} {unit}"
+
+    return facts
+
+
+# ═══════════════════════════════════════════════════════════════
 # RAG GUIDELINES
 # ═══════════════════════════════════════════════════════════════
 
@@ -172,10 +233,24 @@ class StayLevelReasoner:
                      for d in (facts.get("disease_mentions") or []))
         has_dmard = any(isinstance(d, dict) and (d.get("category") or "") in ("csDMARD","bDMARD","tsDMARD")
                         for d in (facts.get("drugs") or []))
-        has_sero = any(isinstance(l, dict) and (l.get("test") or "").lower() in ("rf","anti-ccp","acpa")
-                       for l in (facts.get("labs") or []))
-        if has_ra or has_dmard or has_sero:
-            return True, 0.7, "Heuristic: RA/DMARD/serology"
+        # Distinguer sérologie POSITIVE vs juste TESTÉE
+        has_pos_sero = any(
+            isinstance(l, dict)
+            and (l.get("test") or "").lower() in ("rf", "anti-ccp", "ccp", "acpa")
+            and (l.get("polarity") or "").lower() == "positive"
+            for l in (facts.get("labs") or [])
+        )
+        has_any_sero = any(
+            isinstance(l, dict)
+            and (l.get("test") or "").lower() in ("rf", "anti-ccp", "ccp", "acpa")
+            for l in (facts.get("labs") or [])
+        )
+
+        if has_ra or has_dmard or has_pos_sero:
+            return True, 0.75, "Heuristic: RA mention / DMARD / serology+"
+        if has_any_sero:
+            # Sérologie demandée mais polarité indéterminée : signe de suspicion
+            return True, 0.55, "Heuristic: serology tested (status unclear)"
         return False, 0.6, "Heuristic: no RA indicators"
 
     # ══════════════════════════════════════════════════════════
@@ -463,26 +538,65 @@ class StayLevelReasoner:
         pid = stay_facts.get("patient_id", "?")
         trace: List[str] = []
 
+        # 0) Safety : ré-inférer polarity si Agent 1 a laissé "unknown" malgré
+        #    une valeur numérique présente dans le snippet
+        stay_facts = _infer_polarity_safety(
+            stay_facts,
+            rf_uln=self.cfg.rf_uln,
+            ccp_uln=self.cfg.ccp_uln,
+        )
+
         # 1) RA-relatedness
         is_ra, ra_conf, ra_reason = self.assess_ra_relatedness(stay_facts)
         trace.append(f"[RA-related] {ra_reason} (conf: {ra_conf:.2f})")
 
         if not is_ra:
-            # Still compute probabilistic output: strong PR_ABSENT
-            absent_probs = {"PR_ABSENT": 0.95, "PR_LATENT": 0.03,
-                            "PR_REMISSION": 0.01, "PR_MODERATE": 0.005, "PR_SEVERE": 0.005}
-            return StayAssessment(
-                stay_id=sid, patient_id=pid,
-                is_ra_related=False, ra_related_confidence=ra_conf,
-                ra_related_reasoning=ra_reason,
-                acr_eular_deterministic=None, acr_eular_llm=None,
-                acr_eular_final_score=0,
-                internal_label="RA-", final_stay_label="RA-",
-                confidence=0.95, reasoning_trace=trace,
-                extracted_facts=stay_facts,
-                class_probabilities=absent_probs,
-                predicted_class="PR_ABSENT",
-                pr_positive_probability=0.05)
+            # ── Failsafe : ne PAS court-circuiter aveuglément ──
+            # Avant de retourner RA-, on fait un mini-scoring pour vérifier
+            # qu'on ne perd pas un vrai positif à cause d'un faux 'not RA-related'.
+            quick_dims = self._evaluate_dimensions(stay_facts)
+            quick_score = sum(d.points for d in quick_dims.values()
+                              if d.points is not None)
+            quick_strong_ra = self._strong_ra(stay_facts)
+            objective = [s for s in quick_strong_ra if not s.startswith("PR")]
+
+            # Conditions d'override (au moins une vraie) :
+            #   - score >= seuil - 1 (proche du diagnostic)
+            #   - 2+ signaux objectifs (RF+, CCP+, DMARD…)
+            #   - 1 signal très fort (CCP+ ou DMARD)
+            override = (
+                quick_score >= self.cfg.acr_threshold - 1
+                or len(objective) >= 2
+                or any(("ccp" in s.lower()) or ("dmard" in s.lower())
+                       for s in objective)
+            )
+
+            if override:
+                trace.append(
+                    f"[RA-related override] is_ra=False mais "
+                    f"quick_score={quick_score}, objective={objective} "
+                    f"-> poursuite du scoring complet"
+                )
+                is_ra = True
+                ra_conf = max(ra_conf, 0.5)
+                ra_reason = ra_reason + " (overridden by safety check)"
+            else:
+                # Vraiment pas RA : retour court-circuit comme avant
+                absent_probs = {"PR_ABSENT": 0.95, "PR_LATENT": 0.03,
+                                "PR_REMISSION": 0.01,
+                                "PR_MODERATE": 0.005, "PR_SEVERE": 0.005}
+                return StayAssessment(
+                    stay_id=sid, patient_id=pid,
+                    is_ra_related=False, ra_related_confidence=ra_conf,
+                    ra_related_reasoning=ra_reason,
+                    acr_eular_deterministic=None, acr_eular_llm=None,
+                    acr_eular_final_score=0,
+                    internal_label="RA-", final_stay_label="RA-",
+                    confidence=0.95, reasoning_trace=trace,
+                    extracted_facts=stay_facts,
+                    class_probabilities=absent_probs,
+                    predicted_class="PR_ABSENT",
+                    pr_positive_probability=0.05)
 
         # 2) Evaluate + feedback loop
         current_facts = stay_facts

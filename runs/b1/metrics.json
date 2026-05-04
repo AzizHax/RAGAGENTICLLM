@@ -1,70 +1,64 @@
 {
   "patient_level": {
-    "accuracy": 0.7,
-    "precision": 1.0,
-    "recall": 0.4,
-    "f1": 0.5714,
-    "tp": 2,
-    "fp": 0,
+    "accuracy": 0.8,
+    "precision": 0.7895,
+    "recall": 0.9375,
+    "f1": 0.8571,
+    "tp": 15,
+    "fp": 4,
     "tn": 5,
-    "fn": 3,
+    "fn": 1,
     "errors": [
       {
-        "id": "1087654",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
+        "id": "1234568",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
       },
       {
-        "id": "1248098",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
+        "id": "1580246",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
       },
       {
         "id": "1581520",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
+      },
+      {
+        "id": "2137086",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "2468013",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
       }
     ]
   },
   "stay_level": {
-    "accuracy": 0.619,
-    "precision": 1.0,
-    "recall": 0.2727,
-    "f1": 0.4286,
-    "tp": 3,
-    "fp": 0,
-    "tn": 10,
-    "fn": 8,
+    "accuracy": 0.8421,
+    "precision": 0.9062,
+    "recall": 0.8286,
+    "f1": 0.8657,
+    "tp": 29,
+    "fp": 3,
+    "tn": 19,
+    "fn": 6,
     "errors": [
       {
-        "id": "7777627",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
+        "id": "2452545",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
       },
       {
         "id": "2507202",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "9905557",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "4346519",
-        "pred": "RA-",
-        "true": "RA+",
-        "type": "FN"
-      },
-      {
-        "id": "4635493",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
@@ -76,16 +70,40 @@
         "type": "FN"
       },
       {
-        "id": "4566682",
+        "id": "2391930",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
       },
       {
-        "id": "2391930",
+        "id": "1860969",
         "pred": "RA-",
         "true": "RA+",
         "type": "FN"
+      },
+      {
+        "id": "1621800",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "3872045",
+        "pred": "RA-",
+        "true": "RA+",
+        "type": "FN"
+      },
+      {
+        "id": "2443157",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
+      },
+      {
+        "id": "6197697",
+        "pred": "RA+",
+        "true": "RA-",
+        "type": "FP"
       }
     ]
   }
